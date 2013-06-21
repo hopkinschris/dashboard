@@ -9,3 +9,4 @@ I wrote about this a little while back [Personal API • Quantified Self](http:/
 ## Credit
 
 - [Chart.js](https://github.com/nnnick/Chart.js) — Simple HTML5 Charts using the <canvas> tag.
+- [jawbone-up-ruby](https://github.com/aaronpk/jawbone-up-ruby) — Ruby API client for the Jawbone UP.
