@@ -1,6 +1,16 @@
-<h1>Dashboard</h1>
-<canvas id="sleep" height="450" width="450"></canvas>
+<canvas id="sleep" height="450" width="450" data-light="<%= @light %>" data-deep="<%= @deep %>">
+</canvas>
 
 <script>
-  var myDoughnut = new Chart(document.getElementById("sleep").getContext("2d")).Doughnut(doughnutData);
+  var doughnutData = [
+    {
+      value: $('canvas').data('light'),
+      color:"#949FB1"
+    },
+    {
+      value : $('canvas').data('deep'),
+      color : "#4D5360"
+    }
+  ];
+  var myDoughnut = new Chart(document.getElementById("sleep").getContext("2d")).Doughnut(doughnutData, { percentageInnerCutout : 50 });
 </script>
