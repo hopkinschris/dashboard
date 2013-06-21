@@ -1,0 +1,8 @@
+.DS_Store
+.ruby-version
+.ruby-gemset
+/.bundle
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/log/*.log
+/tmp
