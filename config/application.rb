@@ -24,10 +24,5 @@ module Dashboard
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-
-    # Managing environment variables for local development
-    dashboard_env = File.expand_path('../dashboard.rb', __FILE__)
-    load(dashboard_env) if File.exists?(dashboard_env)
-
   end
 end

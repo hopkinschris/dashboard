@@ -1,4 +1,4 @@
-/config/dashboard.rb
+.env
 .DS_Store
 .ruby-version
 .ruby-gemset
