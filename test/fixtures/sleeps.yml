@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  light_sleep: 1
+  deep_sleep: 1
+  quality: 1
+
+two:
+  light_sleep: 1
+  deep_sleep: 1
+  quality: 1

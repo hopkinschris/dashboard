@@ -1,0 +1,14 @@
+postgres: &postgres
+  adapter: postgresql
+  username: postgres
+  password:
+  encoding: utf8
+  template: template0
+
+development:
+  database: dashboard_development
+  <<: *postgres
+
+test:
+  database: dashboard_test
+  <<: *postgres
