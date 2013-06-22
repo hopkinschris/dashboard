@@ -13,5 +13,6 @@ gem 'jbuilder', '~> 1.0.1'
 gem 'debugger', group: [:development, :test]
 gem 'quiet_assets', group: [:development]
 gem 'heroku'
+gem 'rails_12factor'
 gem 'jawbone-up', '~> 0.0.5'
 gem 'faraday'
