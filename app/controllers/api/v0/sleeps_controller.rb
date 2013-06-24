@@ -1,5 +1,6 @@
 class API::V0::SleepsController < ApplicationController
   def index
-    render json: Sleep.all
+    @sleeps = Sleep.all
+    render json: @sleeps
   end
 end
