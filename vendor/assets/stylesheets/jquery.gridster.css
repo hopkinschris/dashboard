@@ -15,11 +15,6 @@
   list-style: none;
 }
 
-/* #TODO Remove */
-.gridster ul li {
-  background: #DADADA;
-}
-
 .gridster .gs_w{
   z-index: 2;
   position: absolute;

@@ -17,7 +17,6 @@
 //= require jquery.collision
 //= require jquery.coords
 //= require jquery.draggable
-//= require jquery.gridster.extras
 //= require jquery.gridster
 //= require utils
 //= require_tree .
