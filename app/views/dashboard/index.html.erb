@@ -1,7 +1,7 @@
 <div class="gridster">
   <ul>
     <li data-row="1" data-col="1" data-sizex="2" data-sizey="2">
-      <canvas id="sleep" height="300" width="300" data-light="<%= @light %>" data-deep="<%= @deep %>" />
+      <canvas id="sleep" height="300" width="300" data-light="<%= @light_sleep %>" data-deep="<%= @deep_sleep %>" />
     </li>
     <li data-row="2" data-col="1" data-sizex="1" data-sizey="1"></li>
     <li data-row="3" data-col="1" data-sizex="1" data-sizey="1"></li>
@@ -36,7 +36,7 @@
       },
       {
         value : $('canvas').data('deep'),
-        color : "#4D5360"
+        color : "#46BFBD"
       }
     ];
     var myDoughnut = new Chart(document.getElementById("sleep").getContext("2d")).Doughnut(doughnutData, { percentageInnerCutout : 50 });
