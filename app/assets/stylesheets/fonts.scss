@@ -1,26 +1,26 @@
 @font-face {
   font-family: 'proxima_nova_rgregular';
-  src: url('../assets/proximanova-regular-webfont.eot');
-  src: url('../assets/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
-       url('../assets/proximanova-regular-webfont.woff') format('woff'),
-       url('../assets/proximanova-regular-webfont.ttf') format('truetype'),
-       url('../assets/proximanova-regular-webfont.svg#proxima_nova_rgregular') format('svg');
+  src: asset-url('proximanova-regular-webfont.eot');
+  src: asset-url('proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       asset-url('proximanova-regular-webfont.woff') format('woff'),
+       asset-url('proximanova-regular-webfont.ttf') format('truetype'),
+       asset-url('proximanova-regular-webfont.svg#proxima_nova_rgregular') format('svg');
 }
 
 @font-face {
   font-family: 'proxima_novasemibold';
-  src: url('../assets/proximanova-semibold-webfont.eot');
-  src: url('../assets/proximanova-semibold-webfont.eot?#iefix') format('embedded-opentype'),
-       url('../assets/proximanova-semibold-webfont.woff') format('woff'),
-       url('../assets/proximanova-semibold-webfont.ttf') format('truetype'),
-       url('../assets/proximanova-semibold-webfont.svg#proxima_novasemibold') format('svg');
+  src: asset-url('proximanova-semibold-webfont.eot');
+  src: asset-url('proximanova-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+       asset-url('proximanova-semibold-webfont.woff') format('woff'),
+       asset-url('proximanova-semibold-webfont.ttf') format('truetype'),
+       asset-url('proximanova-semibold-webfont.svg#proxima_novasemibold') format('svg');
 }
 
 @font-face {
   font-family: 'proxima_novalight';
-  src: url('../assets/proximanova-light-webfont.eot');
-  src: url('../assets/proximanova-light-webfont.eot?#iefix') format('embedded-opentype'),
-       url('../assets/proximanova-light-webfont.woff') format('woff'),
-       url('../assets/proximanova-light-webfont.ttf') format('truetype'),
-       url('../assets/proximanova-light-webfont.svg#proxima_novalight') format('svg');
+  src: asset-url('proximanova-light-webfont.eot');
+  src: asset-url('proximanova-light-webfont.eot?#iefix') format('embedded-opentype'),
+       asset-url('proximanova-light-webfont.woff') format('woff'),
+       asset-url('proximanova-light-webfont.ttf') format('truetype'),
+       asset-url('proximanova-light-webfont.svg#proxima_novalight') format('svg');
 }
