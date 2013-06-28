@@ -4,6 +4,7 @@ Dashboard::Application.routes.draw do
   namespace :api, path: "", contraints: { subdomain: "api" } do
     namespace :v0 do
       resources :sleeps
+      resources :steps
     end
   end
 end

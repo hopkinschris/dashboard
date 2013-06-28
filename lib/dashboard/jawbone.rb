@@ -25,7 +25,17 @@ module Dashboard::Jawbone
     end
   end
 
+  def new_steps
+    jawbone_up_session
+  end
+
+  private
+
   def create_sleep(light, deep, quality)
     Sleep.create(light_sleep: light, deep_sleep: deep, quality: quality)
+  end
+
+  def create_steps(quantity)
+    Step.create(quantity: quantity)
   end
 end
