@@ -23,5 +23,8 @@ module Dashboard
 
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths += Dir["#{config.root}/lib", "#{config.root}/lib/**/"]
+
+    # Extend asset pipepline for fonts
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end

@@ -15,6 +15,10 @@
   list-style: none;
 }
 
+.gridster ul li {
+  position: relative;
+}
+
 .gridster .gs_w{
   z-index: 2;
   position: absolute;

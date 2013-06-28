@@ -1,0 +1,78 @@
+$base-font:      "proxima_nova_rgregular",'Helvetica Neue', Helvetica, Arial, sans-serif;
+$semi-bold-font: "proxima_novasemibold", 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$light-font:     "proxima_novalight", 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$base-size:      17px;
+$base-color:     #444;
+
+$dark-gray: #4d5360;
+$light-gray: #949fb1;
+$red: #f7464a;
+$teal: #46bfbd;
+$yellow: #fdb45c;
+$light-blue: #69d2e7;
+$orange: #f38630;
+$beige: #e0e4cc;
+
+body {
+  font-family: $base-font;
+  font-size: $base-size;
+  color: $base-color;
+  text-shadow: white 0px 1px 0;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing:    antialiased;
+  -ms-font-smoothing:     antialiased;
+  -o-font-smoothing:      antialiased;
+  font-smoothing:         antialiased;
+}
+
+.css-animation { opacity: 0; }
+
+@mixin fadeIn($time_duration, $time_delay, $direction) {
+  -webkit-animation: fadeIn $time_duration $time_delay $direction;
+  -moz-animation:    fadeIn $time_duration $time_delay $direction;
+  -ms-animation:     fadeIn $time_duration $time_delay $direction;
+  -o-animation:      fadeIn $time_duration $time_delay $direction;
+  animation:         fadeIn $time_duration $time_delay $direction;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

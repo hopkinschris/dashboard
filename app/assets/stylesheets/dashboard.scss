@@ -1,0 +1,19 @@
+@import "base";
+
+.sleep span {
+  position: absolute;
+  top: 40%;
+  right: 40%;
+  font-family: $semi-bold-font;
+  font-size: 3em;
+  color: $teal;
+  @include fadeIn(2s, 2s, forwards);
+  &:after {
+    content: "quality";
+    position: absolute;
+    bottom: -20%;
+    right: 2%;
+    font-size: 0.28em;
+    text-transform: uppercase;
+  }
+}
