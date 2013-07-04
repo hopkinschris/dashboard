@@ -1,7 +1,7 @@
 <div class="gridster">
   <ul>
     <li class="sleep" data-row="1" data-col="1" data-sizex="2" data-sizey="2">
-      <span class="css-animation"><%= @quality_sleep %></span>
+      <span class="css-animation <%= if (@quality_sleep == 100) then 'three' end %>"><%= @quality_sleep %></span>
       <canvas id="sleep" height="300" width="300" data-light="<%= @light_sleep %>" data-deep="<%= @deep_sleep %>" />
     </li>
     <li data-row="2" data-col="1" data-sizex="1" data-sizey="1"></li>
