@@ -1,7 +1,7 @@
 $base-font:      "proxima_nova_rgregular",'Helvetica Neue', Helvetica, Arial, sans-serif;
 $semi-bold-font: "proxima_novasemibold", 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $light-font:     "proxima_novalight", 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$base-size:      17px;
+$base-size:      16px;
 $base-color:     #444;
 
 $dark-gray: #4d5360;
@@ -13,20 +13,17 @@ $light-blue: #69d2e7;
 $orange: #f38630;
 $beige: #e0e4cc;
 
-body {
-  font-family: $base-font;
-  font-size: $base-size;
-  color: $base-color;
-  text-shadow: white 0px 1px 0;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing:    antialiased;
-  -ms-font-smoothing:     antialiased;
-  -o-font-smoothing:      antialiased;
-  font-smoothing:         antialiased;
-}
-
 .css-animation { opacity: 0; }
+.pull-right    { float: right; }
+
+h1 {
+  color: #222;
+  font-family: $semi-bold-font;
+  font-size: 2.75em;
+  line-height: 1.2em;
+  margin: 1.3em 0 0.7em 0;
+  text-align: center;
+}
 
 @mixin fadeIn($time_duration, $time_delay, $direction) {
   -webkit-animation: fadeIn $time_duration $time_delay $direction;

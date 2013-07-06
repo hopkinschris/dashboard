@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dashboard • API</title>
+  <title>chocol.it • dashboard</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
   <%= favicon_link_tag "/favicon.png" %>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <%= render 'layouts/header' %>
+  <section>
+    <%= yield %>
+  </section>
+  <%= render 'layouts/footer' %>
 </body>
 </html>

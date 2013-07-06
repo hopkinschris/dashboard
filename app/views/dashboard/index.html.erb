@@ -1,28 +1,28 @@
-<div class="gridster">
-  <ul>
-    <li class="sleep" data-row="1" data-col="1" data-sizex="2" data-sizey="2">
-      <span class="css-animation <%= if (@quality_sleep == 100) then 'three' end %>"><%= @quality_sleep %></span>
-      <canvas id="sleep" height="300" width="300" data-light="<%= @light_sleep %>" data-deep="<%= @deep_sleep %>" />
-    </li>
-    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1"></li>
-    <li data-row="3" data-col="1" data-sizex="1" data-sizey="1"></li>
+<article>
+  <div class="gridster">
+    <ul>
+      <li class="sleep" data-row="1" data-col="1" data-sizex="2" data-sizey="2">
+        <span class="css-animation <%= if (@quality_sleep == 100) then 'three' end %>"><%= @quality_sleep %></span>
+        <canvas id="sleep" height="300" width="300" data-light="<%= @light_sleep %>" data-deep="<%= @deep_sleep %>" />
+      </li>
+      <li data-row="2" data-col="1" data-sizex="1" data-sizey="1"></li>
+      <li data-row="3" data-col="1" data-sizex="1" data-sizey="1"></li>
 
-    <li class="steps-calories" data-row="1" data-col="2" data-sizex="4" data-sizey="3">
-<!--       <canvas id="steps-calories" height="450" width="600" /> -->
-    </li>
-    <li data-row="2" data-col="2" data-sizex="2" data-sizey="2"></li>
+      <li data-row="1" data-col="2" data-sizex="2" data-sizey="1"></li>
+      <li data-row="2" data-col="2" data-sizex="2" data-sizey="2"></li>
 
-    <li data-row="1" data-col="4" data-sizex="1" data-sizey="1"></li>
-    <li data-row="2" data-col="4" data-sizex="2" data-sizey="1"></li>
-    <li data-row="3" data-col="4" data-sizex="1" data-sizey="1"></li>
+      <li data-row="1" data-col="4" data-sizex="1" data-sizey="1"></li>
+      <li data-row="2" data-col="4" data-sizex="2" data-sizey="1"></li>
+      <li data-row="3" data-col="4" data-sizex="1" data-sizey="1"></li>
 
-    <li data-row="1" data-col="5" data-sizex="1" data-sizey="1"></li>
-    <li data-row="3" data-col="5" data-sizex="1" data-sizey="1"></li>
+      <li data-row="1" data-col="5" data-sizex="1" data-sizey="1"></li>
+      <li data-row="3" data-col="5" data-sizex="1" data-sizey="1"></li>
 
-    <li data-row="1" data-col="6" data-sizex="1" data-sizey="1"></li>
-    <li data-row="2" data-col="6" data-sizex="1" data-sizey="2"></li>
-  </ul>
-</div>
+      <li data-row="1" data-col="6" data-sizex="1" data-sizey="1"></li>
+      <li data-row="2" data-col="6" data-sizex="1" data-sizey="2"></li>
+    </ul>
+  </div>
+</article>
 
 <script>
   $(function() {
@@ -43,22 +43,5 @@
       }
     ];
     var myDoughnut = new Chart(document.getElementById("sleep").getContext("2d")).Doughnut(doughnutData, { percentageInnerCutout : 50 });
-
-    // var barChartData = {
-    //   labels : ["M","T","W","T","F","S","S"],
-    //   datasets : [
-    //     {
-    //       fillColor : "rgba(220,220,220,0.5)",
-    //       strokeColor : "rgba(220,220,220,1)",
-    //       data : [6500,5900,9000,8100,5600,5500,4000]
-    //     },
-    //     {
-    //       fillColor : "rgba(151,187,205,0.5)",
-    //       strokeColor : "rgba(151,187,205,1)",
-    //       data : [2800,4800,4000,1900,9600,2700,10000]
-    //     }
-    //   ]
-    // }
-    // var myLine = new Chart(document.getElementById("steps-calories").getContext("2d")).Bar(barChartData);
   });
 </script>

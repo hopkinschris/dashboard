@@ -1,0 +1,34 @@
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+  #logo {
+    background-image: url(../assets/logo@2x.png);
+  }
+}
+@media all and (max-width: 640px) {
+  header,
+  section,
+  footer {
+    width: 320px;
+  }
+  header {
+    margin-bottom: 0;
+  }
+  #logo {
+    float: none!important;
+  }
+  nav ul,
+  #button {
+    display: none;
+  }
+  h1 {
+    font-size: 190%;
+  }
+  footer a {
+    font-size: 80%;
+    margin: 0 0.5em;
+  }
+}
+@media only screen and (max-width: 640px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+  #logo {
+    background-image: url(../assets/logo@2x.png);
+  }
+}
