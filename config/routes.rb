@@ -6,6 +6,7 @@ Dashboard::Application.routes.draw do
       resources :users
       resources :sleeps
       resources :steps
+      resources :moods
     end
   end
 end

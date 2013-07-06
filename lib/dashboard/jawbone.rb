@@ -27,6 +27,24 @@ module Dashboard::Jawbone
 
   def new_steps
     jawbone_up_session
+    #TODO
+  end
+
+  def new_mood
+    jawbone_up_session
+
+    if score = @up.get("/nudge/api/users/@me/score")
+      data = score['data']['mood']
+
+      title = data['title']
+      sub_type = data['sub_type']
+    end
+
+    last = Mood.last || create_mood(title, sub_type)
+
+    unless (title == last.title && sub_type == last.sub_type)
+      create_mood(title, sub_type)
+    end
   end
 
   private
@@ -37,5 +55,10 @@ module Dashboard::Jawbone
 
   def create_steps(quantity)
     Step.create(quantity: quantity)
+  end
+
+  def create_mood(title, sub_type)
+    debugger
+    Mood.create(title: title, sub_type: sub_type)
   end
 end
