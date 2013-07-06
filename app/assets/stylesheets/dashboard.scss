@@ -11,7 +11,7 @@
     position: absolute;
     top: 25px;
     left: 135px;
-    width: 73%;
+    width: 65%;
     span {
       display: block;
       line-height: 1.43em;
@@ -22,13 +22,13 @@
     #height {
       position: absolute;
       top: 0px;
-      left: 200px;
+      right: 20px;
     }
     #measurement {
       font-family: $semi-bold-font;
       position: absolute;
       top: 39px;
-      left: 237px;
+      right: 5px;
     }
   }
 }
