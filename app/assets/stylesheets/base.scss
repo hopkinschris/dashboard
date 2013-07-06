@@ -38,6 +38,15 @@ h1 {
   margin: 1.3em 0 0.7em 0;
   text-align: center;
 }
+img {
+  max-width: 100%;
+  height: auto;
+  width: auto\9;
+  @include border-radius(4px);
+  padding: 4px;
+  margin: 21px;
+  border: solid 1px #DDD;
+}
 .btn {
   display: inline-block;
   padding: 12px 40px;
