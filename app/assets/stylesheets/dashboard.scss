@@ -5,9 +5,9 @@
 }
 .sleep {
   text-align: center;
-  span {
+  #quality {
     position: absolute;
-    top: 40%;
+    top: 34%;
     right: 40%;
     font-family: $semi-bold-font;
     font-size: 3em;
@@ -28,7 +28,28 @@
       text-transform: uppercase;
     }
   }
-  #sleep {
-    margin: 22px auto;
+  #sleep-canvas {
+    margin: 16px;
+  }
+  p {
+    font-size: 1em;
+    display: inline-block;
+    span {
+      font-family: $semi-bold-font;
+    }
+    &#deep {
+      float: left;
+      margin-left: 20px;
+      span {
+        color: $teal;
+      }
+    }
+    &#light {
+      float: right;
+      margin-right: 20px;
+      span {
+        color: $light-gray;
+      }
+    }
   }
 }
