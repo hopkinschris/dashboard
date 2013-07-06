@@ -1,25 +1,22 @@
 <article>
   <div class="gridster">
     <ul>
-      <li class="profile" data-row="1" data-col="1" data-sizex="6" data-sizey="1"></li>
-      <li class="sleep" data-row="2" data-col="5" data-sizex="2" data-sizey="2">
+      <li class="profile" data-row="1" data-col="1" data-sizex="4" data-sizey="2"></li>
+      <li class="sleep" data-row="1" data-col="4" data-sizex="2" data-sizey="2">
         <span class="css-animation <%= if (@quality_sleep == 100) then 'three' end %>"><%= @quality_sleep %></span>
-        <canvas id="sleep" height="300" width="300" data-light="<%= @light_sleep %>" data-deep="<%= @deep_sleep %>" />
+        <canvas id="sleep" height="250" width="250" data-light="<%= @light_sleep %>" data-deep="<%= @deep_sleep %>" />
       </li>
-      <li data-row="3" data-col="1" data-sizex="1" data-sizey="1"></li>
 
       <li data-row="1" data-col="2" data-sizex="2" data-sizey="1"></li>
       <li data-row="2" data-col="2" data-sizex="2" data-sizey="2"></li>
 
       <li data-row="1" data-col="4" data-sizex="1" data-sizey="1"></li>
       <li data-row="2" data-col="4" data-sizex="2" data-sizey="1"></li>
-      <li data-row="3" data-col="4" data-sizex="1" data-sizey="1"></li>
 
       <li data-row="1" data-col="5" data-sizex="1" data-sizey="1"></li>
-      <li data-row="3" data-col="5" data-sizex="1" data-sizey="1"></li>
 
       <li data-row="1" data-col="6" data-sizex="1" data-sizey="1"></li>
-      <li data-row="2" data-col="6" data-sizex="1" data-sizey="2"></li>
+      <li data-row="3" data-col="6" data-sizex="1" data-sizey="1"></li>
     </ul>
   </div>
 </article>
@@ -42,6 +39,6 @@
         color : "#46BFBD"
       }
     ];
-    var myDoughnut = new Chart(document.getElementById("sleep").getContext("2d")).Doughnut(doughnutData, { percentageInnerCutout : 50 });
+    var myDoughnut = new Chart(document.getElementById("sleep").getContext("2d")).Doughnut(doughnutData, { percentageInnerCutout : 80 });
   });
 </script>

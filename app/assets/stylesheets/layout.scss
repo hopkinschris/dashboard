@@ -76,6 +76,12 @@ section {
     box-sizing: border-box;
     margin: 0 auto;
     max-width: 945px;
+    margin-bottom: 20px;
+    .gridster li {
+      background: $bg-color;
+      border: solid 1px #DDD;
+      @include border-radius(4px);
+    }
   }
 }
 footer {
