@@ -1,11 +1,11 @@
 <article>
   <div class="gridster">
     <ul>
-      <li class="sleep" data-row="1" data-col="1" data-sizex="2" data-sizey="2">
+      <li class="profile" data-row="1" data-col="1" data-sizex="6" data-sizey="1"></li>
+      <li class="sleep" data-row="2" data-col="5" data-sizex="2" data-sizey="2">
         <span class="css-animation <%= if (@quality_sleep == 100) then 'three' end %>"><%= @quality_sleep %></span>
         <canvas id="sleep" height="300" width="300" data-light="<%= @light_sleep %>" data-deep="<%= @deep_sleep %>" />
       </li>
-      <li data-row="2" data-col="1" data-sizex="1" data-sizey="1"></li>
       <li data-row="3" data-col="1" data-sizex="1" data-sizey="1"></li>
 
       <li data-row="1" data-col="2" data-sizex="2" data-sizey="1"></li>
@@ -29,7 +29,7 @@
 
     $(".gridster ul").gridster({
         widget_margins: [10, 10],
-        widget_base_dimensions: [140, 140]
+        widget_base_dimensions: [137, 137]
     });
 
     var doughnutData = [

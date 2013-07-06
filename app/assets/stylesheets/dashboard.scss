@@ -1,5 +1,10 @@
 @import "layout";
 
+.profile {
+  background: $bg-color;
+  border: solid 1px #DDD;
+  @include border-radius(4px);
+}
 .sleep span {
   position: absolute;
   top: 40%;

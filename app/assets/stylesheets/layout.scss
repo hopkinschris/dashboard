@@ -2,8 +2,8 @@
 @import "media";
 
 body {
+  background: $bg-color;
   color: $base-color;
-  background: #FAFAFA;
   text-shadow: white 0px 1px 0;
   font-size: $base-size;
   font-family: $base-font;
@@ -18,9 +18,9 @@ header {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0 auto;
+  margin-bottom: 2.2em;
   padding: 0 10px;
   max-width: 945px;
-  margin-bottom: 3.5em;
 }
 nav {
   margin: 0 auto;
@@ -64,45 +64,17 @@ nav {
       }
     }
   }
-  .btn {
-    display: inline-block;
-    padding: 12px 40px;
-    border: solid 1px #2473B0;
-    border-bottom: 1px solid #20608F;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #2A99EF), color-stop(1, #237BBD));
-    background: -webkit-linear-gradient(top, #2A99EF 0%, #237BBD 100%);
-    background: -moz-linear-gradient(top, #2A99EF 0%, #237BBD 100%);
-    background: -o-linear-gradient(top, #2A99EF 0%, #237BBD 100%);
-    background: -ms-linear-gradient(top, #2A99EF 0%, #237BBD 100%);
-    background: linear-gradient(top, #2A99EF 0%, #237BBD 100%);
-    background-color: #2B96F1;
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), inset 0 1px rgba(255, 255, 255, 0.25);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), inset 0 1px rgba(255, 255, 255, 0.25);
-    color: #FFF;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
-    font-weight: 700;
-    font-size: 28px;
-    font-family: $semi-bold-font;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    &.btn-smaller {
-      padding: 5px 15px;
-      font-size: 13px;
-    }
-  }
 }
 section {
+  background: #F6F6F6;
+  border-bottom: 1px solid #d1d3d4;
+  box-shadow: inset 0px 11px 8px -10px #CCC,
+              inset 0px -11px 8px -10px #CCC;
   article {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0 auto;
-    padding: 0 10px;
     max-width: 945px;
   }
 }
@@ -111,7 +83,7 @@ footer {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0 auto;
-  padding-bottom: 1.5em;
+  padding: 1.5em 0;
   max-width: 945px;
   text-align: center;
   zoom: 1;
