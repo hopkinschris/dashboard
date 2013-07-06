@@ -4,12 +4,12 @@
       <li class="profile" data-row="1" data-col="1" data-sizex="4" data-sizey="1">
         <img id="avatar" width="85" height="85" src="../assets/avatar.png"></img>
           <aside>
-            <span id="name">Christopher Hopkins</span>
-            <span id="city">Toronto, Canada</span>
-            <span id="age">28 years old</span>
-            <span id="gender">Male</span>
+            <span id="name"><%= @user.name %></span>
+            <span id="city"><%= @user.location %></span>
+            <span id="age"><%= @user.age %> years old</span>
+            <span id="gender"><%= @user.gender.titleize %></span>
             <img id="height" width="51" height="90" src="../assets/height.png"></img>
-            <div id="measurement">6'0"</div>
+            <div id="measurement"><%= @user.height %></div>
           </aside>
       </li>
       <li class="sleep" data-row="1" data-col="4" data-sizex="2" data-sizey="2">

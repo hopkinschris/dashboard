@@ -3,6 +3,7 @@ class DashboardController < ApplicationController
   before_filter :step_data,  only: :index
 
   def index
+    @user = User.me
   end
 
   private
