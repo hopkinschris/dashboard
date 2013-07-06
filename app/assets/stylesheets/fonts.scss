@@ -6,7 +6,6 @@
        asset-url('proximanova-regular-webfont.ttf') format('truetype'),
        asset-url('proximanova-regular-webfont.svg#proxima_nova_rgregular') format('svg');
 }
-
 @font-face {
   font-family: 'proxima_novasemibold';
   src: asset-url('proximanova-semibold-webfont.eot');
@@ -15,7 +14,6 @@
        asset-url('proximanova-semibold-webfont.ttf') format('truetype'),
        asset-url('proximanova-semibold-webfont.svg#proxima_novasemibold') format('svg');
 }
-
 @font-face {
   font-family: 'proxima_novalight';
   src: asset-url('proximanova-light-webfont.eot');
@@ -23,4 +21,36 @@
        asset-url('proximanova-light-webfont.woff') format('woff'),
        asset-url('proximanova-light-webfont.ttf') format('truetype'),
        asset-url('proximanova-light-webfont.svg#proxima_novalight') format('svg');
+}
+@font-face {
+  font-family: 'entypo';
+  src: asset-url('entypo.eot');
+  src: asset-url('entypo.eot?#iefix') format('embedded-opentype'),
+       asset-url('entypo.woff') format('woff'),
+       asset-url('entypo.ttf') format('truetype'),
+       asset-url('entypo.svg#entypo') format('svg');
+}
+@font-face {
+  font-family: 'entypo-social';
+  src: asset-url('entypo-social.eot');
+  src: asset-url('entypo-social.eot?#iefix') format('embedded-opentype'),
+       asset-url('entypo-social.woff') format('woff'),
+       asset-url('entypo-social.ttf') format('truetype'),
+       asset-url('entypo-social.svg#entypo-social') format('svg');
+}
+
+[data-icon]:before {
+  font-family: 'entypo';
+  content: attr(data-icon);
+  speak: none;
+  font-size: 3em;
+  font-weight: normal;
+  line-height: 1;
+}
+[data-social-icon]:before {
+  font-family: 'entypo-social';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  line-height: 1;
 }

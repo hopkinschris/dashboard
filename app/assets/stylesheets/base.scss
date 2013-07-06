@@ -11,6 +11,7 @@ $red:            #f7464a;
 $teal:           #46bfbd;
 $yellow:         #fdb45c;
 $light-blue:     #69d2e7;
+$dull-blue:      #c2d4dd;
 $orange:         #f38630;
 $beige:          #e0e4cc;
 
@@ -42,10 +43,6 @@ img {
   max-width: 100%;
   height: auto;
   width: auto\9;
-  @include border-radius(4px);
-  padding: 4px;
-  margin: 21px;
-  border: solid 1px #DDD;
 }
 .btn {
   display: inline-block;

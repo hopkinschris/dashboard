@@ -3,6 +3,14 @@
     <ul>
       <li class="profile" data-row="1" data-col="1" data-sizex="4" data-sizey="1">
         <img id="avatar" width="85" height="85" src="../assets/avatar.png"></img>
+          <aside>
+            <span id="name">Christopher Hopkins</span>
+            <span id="city">Toronto, Canada</span>
+            <span id="age">28 years old</span>
+            <span id="gender">Male</span>
+            <img id="height" width="51" height="90" src="../assets/height.png"></img>
+            <div id="measurement">6'0"</div>
+          </aside>
       </li>
       <li class="sleep" data-row="1" data-col="4" data-sizex="2" data-sizey="2">
         <div id="quality" class="css-animation <%= if (@quality_sleep == 100) then 'three' end %>"><%= @quality_sleep %></div>

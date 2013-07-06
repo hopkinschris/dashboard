@@ -1,7 +1,36 @@
 @import "layout";
 
 .profile {
-
+  #avatar {
+    @include border-radius(4px);
+    padding: 4px;
+    margin: 21px;
+    border: solid 1px #DDD;
+  }
+  aside {
+    position: absolute;
+    top: 25px;
+    left: 135px;
+    width: 73%;
+    span {
+      display: block;
+      line-height: 1.43em;
+      &#name {
+        font-family: $semi-bold-font;
+      }
+    }
+    #height {
+      position: absolute;
+      top: 0px;
+      left: 200px;
+    }
+    #measurement {
+      font-family: $semi-bold-font;
+      position: absolute;
+      top: 39px;
+      left: 237px;
+    }
+  }
 }
 .sleep {
   text-align: center;
