@@ -43,20 +43,20 @@ class DashboardController < ApplicationController
         @mood_face  = "Energized"
         @mood_scale = 6
       when 4
-        @mood_face  = "Good"
-        @mood_scale = 5
-      when 5
         @mood_face  = "Meh"
         @mood_scale = 4
-      when 6
+      when 5
         @mood_face  = "Dragging"
         @mood_scale = 3
-      when 7
+      when 6
         @mood_face  = "Exhausted"
         @mood_scale = 2
-      when 8
+      when 7
         @mood_face  = "Totally Done"
         @mood_scale = 1
+      when 8
+        @mood_face  = "Good"
+        @mood_scale = 5
       end
     end
   end

@@ -12,10 +12,10 @@ module Dashboard::Jawbone
 
     if sleep_summary = @up.get_sleep_summary
       # single value returned in 0-100 point scale from Jawbone API
-      quality = sleep_summary['items'].last['details']['quality']
+      quality = sleep_summary['items'].first['details']['quality']
       # values are returned in 'seconds' format from Jawbone API
-      light = sleep_summary['items'].last['details']['light']
-      deep = sleep_summary['items'].last['details']['deep']
+      light = sleep_summary['items'].first['details']['light']
+      deep = sleep_summary['items'].first['details']['deep']
     end
 
     last = Sleep.last || create_sleep(light, deep, quality)
