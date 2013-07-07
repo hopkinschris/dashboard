@@ -32,6 +32,7 @@
     }
   }
 }
+
 .sleep {
   text-align: center;
   #quality {
@@ -80,5 +81,18 @@
         color: $light-gray;
       }
     }
+  }
+}
+
+.mood {
+  #mood-canvas {
+    position: absolute;
+    left: 17px;
+    bottom: 0px;
+  }
+  #title {
+    font-family: $semi-bold-font;
+    text-align: center;
+    margin: 21px 0;
   }
 }
