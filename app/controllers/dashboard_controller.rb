@@ -2,6 +2,7 @@ class DashboardController < ApplicationController
   before_filter :sleep_data, only: :index
   before_filter :step_data,  only: :index
   before_filter :mood_data,  only: :index
+  before_filter :steps_data, only: :index
 
   def index
     @user = User.me
@@ -59,5 +60,18 @@ class DashboardController < ApplicationController
         @mood_scale = 5
       end
     end
+  end
+
+  def steps_data
+    steps = Array.new(Step.all)
+    @today_steps   = steps[-1].nil? ? 0 : steps[-1].quantity
+    @minus_1_steps = steps[-2].nil? ? 0 : steps[-2].quantity
+    @minus_2_steps = steps[-3].nil? ? 0 : steps[-3].quantity
+    @minus_3_steps = steps[-4].nil? ? 0 : steps[-4].quantity
+    @minus_4_steps = steps[-5].nil? ? 0 : steps[-5].quantity
+    @minus_5_steps = steps[-6].nil? ? 0 : steps[-6].quantity
+    @minus_6_steps = steps[-7].nil? ? 0 : steps[-7].quantity
+
+    @steps_updated = Step.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%A %k:%S")
   end
 end

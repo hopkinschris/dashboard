@@ -27,7 +27,20 @@ module Dashboard::Jawbone
 
   def new_steps
     jawbone_up_session
-    #TODO
+
+    if up = @up.get("/nudge/api/users/@me/score")
+      if data = up['data']['move']
+        quantity = data['bg_steps']
+      end
+    end
+
+    last = Step.last || create_steps(quantity)
+
+    if Step.last.quantity > quantity
+      create_steps(quantity: quantity)
+    else
+      Step.last.update_attributes!(quantity: quantity)
+    end
   end
 
   def new_mood

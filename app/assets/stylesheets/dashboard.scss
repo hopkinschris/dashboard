@@ -96,3 +96,33 @@
     margin: 21px 0;
   }
 }
+
+.steps {
+  #quantity {
+    position: relative;
+    float: right;
+    margin: 16px 17px 0 0;
+    font-family: $semi-bold-font;
+    font-size: 3em;
+    color: $orange;
+    @include fadeIn(1s, 1s, forwards);
+    &:after {
+      content: "Steps";
+      position: absolute;
+      bottom: -20%;
+      right: 0px;
+      font-size: 0.28em;
+      text-transform: uppercase;
+    }
+  }
+  #updated {
+    float: left;
+    margin: 22px 0 0 21px;
+    font-family: $semi-bold-font;
+  }
+  #steps-canvas {
+    position: absolute;
+    left: 21px;
+    bottom: 0px;
+  }
+}
