@@ -61,7 +61,7 @@
       labels : [""],
       datasets : [
         {
-          fillColor : "#e0e4cc",
+          fillColor : "<%= if @mood_title == 'No Data' then '#f7464a' else '#e0e4cc' end %>",
           strokeColor : "#e0e4cc",
           data : ["<%= @mood_scale %>"]
         }

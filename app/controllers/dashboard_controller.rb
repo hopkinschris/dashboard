@@ -29,6 +29,10 @@ class DashboardController < ApplicationController
       @mood_sub_type  = Mood.sub_type
 
       case @mood_sub_type
+      when 0
+        @mood_face  = "No Data"
+        @mood_title = "No Data"
+        @mood_scale = 8
       when 1
         @mood_face  = "Amazing!"
         @mood_scale = 8

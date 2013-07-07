@@ -34,10 +34,13 @@ module Dashboard::Jawbone
     jawbone_up_session
 
     if score = @up.get("/nudge/api/users/@me/score")
-      data = score['data']['mood']
-
-      title = data['title']
-      sub_type = data['sub_type']
+      if data = score['data']['mood']
+        title = data['title']
+        sub_type = data['sub_type']
+      else
+        title = nil
+        sub_type = 0
+      end
     end
 
     last = Mood.last || create_mood(title, sub_type)
@@ -58,7 +61,6 @@ module Dashboard::Jawbone
   end
 
   def create_mood(title, sub_type)
-    debugger
     Mood.create(title: title, sub_type: sub_type)
   end
 end
