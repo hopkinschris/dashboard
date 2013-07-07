@@ -1,6 +1,7 @@
 <article>
   <div class="gridster">
     <ul>
+      <!-- Row 1 -->
       <li class="profile" data-row="1" data-col="1" data-sizex="3" data-sizey="1">
         <img id="avatar" width="85" height="85" src="../assets/avatar.png"></img>
           <aside>
@@ -12,27 +13,27 @@
             <div id="measurement"><%= @user.height %></div>
           </aside>
       </li>
-      <li class="sleep" data-row="1" data-col="4" data-sizex="2" data-sizey="2">
+      <li class="sleep" data-row="1" data-col="5" data-sizex="2" data-sizey="2">
         <div id="quality" class="css-animation <%= if (@quality_sleep == 100) then 'three' end %>"><%= @quality_sleep %></div>
         <canvas id="sleep-canvas" height="225" width="225" data-light="<%= @light_sleep %>" data-deep="<%= @deep_sleep %>"></canvas>
         <p id="deep">Deep Sleep: <span><%= Time.at(@deep_sleep).gmtime.strftime("%l:%M") %></span></p>
         <p id="light">Light Sleep: <span><%= Time.at(@light_sleep).gmtime.strftime("%l:%M") %></span></p>
       </li>
+      <!-- End of Row 1 -->
 
-      <li data-row="1" data-col="2" data-sizex="1" data-sizey="1"></li>
-      <li class="mood" data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+      <!-- Row 2 -->
+      <li data-row="2" data-col="1" data-sizex="4" data-sizey="2"></li>
+      <li class="mood" data-row="1" data-col="6" data-sizex="1" data-sizey="1">
         <p id="title"><%= @mood_title %></p>
         <canvas id="mood-canvas" height="105" width="105"></canvas>
       </li>
+      <!-- End of Row 2 -->
 
-      <li data-row="1" data-col="4" data-sizex="1" data-sizey="1"></li>
-      <li data-row="2" data-col="4" data-sizex="2" data-sizey="1"></li>
-
-      <li data-row="1" data-col="5" data-sizex="1" data-sizey="1"></li>
-
-      <li data-row="1" data-col="6" data-sizex="1" data-sizey="1"></li>
-      <li data-row="3" data-col="6" data-sizex="1" data-sizey="1"></li>
-      <li data-row="3" data-col="4" data-sizex="4" data-sizey="1"></li>
+      <!-- Row 3 -->
+      <li data-row="3" data-col="1" data-sizex="2" data-sizey="3"></li>
+      <li data-row="3" data-col="3" data-sizex="2" data-sizey="2"></li>
+      <li data-row="3" data-col="5" data-sizex="2" data-sizey="2"></li>
+      <!-- End of Row 3 -->
     </ul>
   </div>
 </article>
@@ -66,8 +67,7 @@
           data : ["<%= @mood_scale %>"]
         }
       ]
-
-    }
+    };
     var myLine = new Chart(document.getElementById("mood-canvas").getContext("2d")).Bar(barChartData, { barShowStroke : true, scaleLineColor : "rgba(0,0,0,0)", scaleGridLineColor : "rgba(0,0,0,0)", scaleShowLabels : false, scaleShowGridLines : false, scaleOverride : true, scaleSteps : 8, scaleStepWidth : 1, scaleStartValue : 0 });
   });
 </script>
