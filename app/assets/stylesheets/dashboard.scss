@@ -126,3 +126,33 @@
     bottom: 0px;
   }
 }
+
+.calories {
+  #quantity {
+    position: relative;
+    float: right;
+    margin: 16px 17px 0 0;
+    font-family: $semi-bold-font;
+    font-size: 3em;
+    color: $red;
+    @include fadeIn(1s, 1s, forwards);
+    &:after {
+      content: "Calories Burned";
+      position: absolute;
+      bottom: -20%;
+      right: 0px;
+      font-size: 0.28em;
+      text-transform: uppercase;
+    }
+  }
+  #updated {
+    float: left;
+    margin: 22px 0 0 21px;
+    font-family: $semi-bold-font;
+  }
+  #calories-canvas {
+    position: absolute;
+    left: 21px;
+    bottom: 0px;
+  }
+}

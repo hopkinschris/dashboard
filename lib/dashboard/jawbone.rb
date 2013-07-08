@@ -28,8 +28,8 @@ module Dashboard::Jawbone
   def new_steps
     jawbone_up_session
 
-    if up = @up.get("/nudge/api/users/@me/score")
-      if data = up['data']['move']
+    if score = @up.get("/nudge/api/users/@me/score")
+      if data = score['data']['move']
         quantity = data['bg_steps']
       end
     end
@@ -40,6 +40,26 @@ module Dashboard::Jawbone
       create_steps(quantity: quantity)
     else
       Step.last.update_attributes!(quantity: quantity)
+    end
+  end
+
+  def new_calories
+    jawbone_up_session
+
+    if score = @up.get("/nudge/api/users/@me/score")
+      if data = score['data']['move']
+        active_burn  = data['calories']
+        resting_burn = data['bmr_calories']
+        quantity = active_burn + resting_burn
+      end
+    end
+
+    last = Calorie.last || create_calories(quantity)
+
+    if Calorie.last.quantity > quantity
+      create_calories(quantity: quantity)
+    else
+      Calorie.last.update_attributes!(quantity: quantity)
     end
   end
 
@@ -71,6 +91,10 @@ module Dashboard::Jawbone
 
   def create_steps(quantity)
     Step.create(quantity: quantity)
+  end
+
+  def create_calories(quantity)
+    Calorie.create(quantity: quantity)
   end
 
   def create_mood(title, sub_type)
