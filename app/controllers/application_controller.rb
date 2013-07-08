@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+  #TODO Remove once dashboard is live and API is locked down tight
+  http_basic_authenticate_with name: ENV['JAWBONE_UP_EMAIL'], password: ENV['JAWBONE_UP_PWD']
   protect_from_forgery with: :exception
 end
