@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+  http_basic_authenticate_with name: ENV['JAWBONE_UP_EMAIL'], password: ENV['JAWBONE_UP_EMAIL'] if Rails.env.production?
   before_filter :sleep_data,   only: :index
   before_filter :step_data,    only: :index
   before_filter :calorie_data, only: :index
