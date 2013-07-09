@@ -32,7 +32,7 @@ nav {
     width: 125px;
     height: 30px;
     border: none;
-    background: url(../assets/logo.png) no-repeat;
+    background: asset-url("logo.png") no-repeat;
     background-size: 125px 30px;
     text-indent: -9009em;
   }
@@ -109,8 +109,19 @@ footer {
       color: #1c1c1c;
     }
   }
+  #flag {
+    display: inline-block;
+    float: left;
+    background: asset-url("flag.png") no-repeat;
+    background-size: 24px 24px;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px;
+    position: relative;
+    top: -5px;
+  }
 }
 .separator {
   padding: 1.3em 0;
-  background: url(../assets/separator.png) top center no-repeat;
+  background: asset-url("separator.png") top center no-repeat;
 }

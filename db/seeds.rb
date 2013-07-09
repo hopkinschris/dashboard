@@ -1,6 +1,6 @@
 User.create(
   name: 'Christopher Hopkins',
-  location: 'Toronto, Canada',
+  location: 'Toronto',
   age: 28,
   gender: 'male',
   height: "6'0\""
