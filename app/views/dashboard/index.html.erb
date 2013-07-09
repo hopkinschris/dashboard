@@ -24,7 +24,7 @@
       <!-- Row 2 -->
       <li class="steps" data-row="2" data-col="1" data-sizex="4" data-sizey="2">
         <span id="updated"><%= @steps_updated %> EST</span>
-        <div id="quantity" class="css-animation"><%= number_with_delimiter(@today_steps) %></div>
+        <div id="quantity" class="css-animation"><%= if @today_steps.nil? then '0' else number_with_delimiter(@today_steps) end %></div>
         <canvas id="steps-canvas" height="225" width="569"></canvas>
       </li>
       <li class="mood" data-row="1" data-col="6" data-sizex="1" data-sizey="1">
@@ -37,7 +37,7 @@
       <!-- Row 3 -->
       <li class="calories" data-row="3" data-col="1" data-sizex="4" data-sizey="2">
         <span id="updated"><%= @calories_updated %> EST</span>
-        <div id="quantity" class="css-animation"><%= number_with_delimiter(@today_calories) %></div>
+        <div id="quantity" class="css-animation"><%= if @today_calories.nil? then '0' else number_with_delimiter(@today_calories) end %></div>
         <canvas id="calories-canvas" height="225" width="569"></canvas>
       </li>
       <li data-row="3" data-col="5" data-sizex="2" data-sizey="1"></li>
@@ -86,7 +86,7 @@
           strokeColor : "#fdb45c",
           pointColor : "#fff",
           pointStrokeColor : "#fdb45c",
-          data : [<%= @minus_6_steps %>, <%= @minus_5_steps %>, <%= @minus_4_steps %>, <%= @minus_3_steps %>, <%= @minus_2_steps %>, <%= @minus_1_steps %>, <%= @today_steps %>]
+          data : [<%= @minus_6_steps %>, <%= @minus_5_steps %>, <%= @minus_4_steps %>, <%= @minus_3_steps %>, <%= @minus_2_steps %>, <%= @minus_1_steps %>, <%= @today_steps || 0 %>]
         }
       ]
     };
@@ -100,7 +100,7 @@
           strokeColor : "#f7464a",
           pointColor : "#fff",
           pointStrokeColor : "#f7464a",
-          data : [<%= @minus_6_calories %>, <%= @minus_5_calories %>, <%= @minus_4_calories %>, <%= @minus_3_calories %>, <%= @minus_2_calories %>, <%= @minus_1_calories %>, <%= @today_calories %>]
+          data : [<%= @minus_6_calories %>, <%= @minus_5_calories %>, <%= @minus_4_calories %>, <%= @minus_3_calories %>, <%= @minus_2_calories %>, <%= @minus_1_calories %>, <%= @today_calories || 0 %>]
         }
       ]
     };

@@ -101,7 +101,9 @@
   #quantity {
     position: relative;
     float: right;
+    text-align: right;
     margin: 16px 17px 0 0;
+    min-width: 125px;
     font-family: $semi-bold-font;
     font-size: 3em;
     color: $orange;
@@ -131,7 +133,9 @@
   #quantity {
     position: relative;
     float: right;
+    text-align: right;
     margin: 16px 17px 0 0;
+    min-width: 125px;
     font-family: $semi-bold-font;
     font-size: 3em;
     color: $red;
