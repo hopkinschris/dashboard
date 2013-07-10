@@ -18,9 +18,11 @@ module Dashboard::Jawbone
       deep = sleep_summary['items'].first['details']['deep']
     end
 
-    last = Sleep.last || create_sleep(light, deep, quality)
-
-    unless (light == last.light_sleep && deep == last.deep_sleep && quality == last.quality)
+    if last = Sleep.last
+      unless (light == last.light_sleep && deep == last.deep_sleep && quality == last.quality)
+        create_sleep(light, deep, quality)
+      end
+    else
       create_sleep(light, deep, quality)
     end
   end
@@ -34,12 +36,14 @@ module Dashboard::Jawbone
       end
     end
 
-    last = Step.last || create_steps(quantity)
-
-    if Step.last.quantity > quantity
-      create_steps(quantity: quantity)
+    if last = Step.last
+      if last.quantity > quantity
+        create_steps(quantity: quantity)
+      else
+        last.update_attributes!(quantity: quantity)
+      end
     else
-      Step.last.update_attributes!(quantity: quantity)
+      create_steps(quantity)
     end
   end
 
@@ -54,12 +58,14 @@ module Dashboard::Jawbone
       end
     end
 
-    last = Calorie.last || create_calories(quantity)
-
-    if Calorie.last.quantity > quantity
-      create_calories(quantity: quantity)
+    if last = Calorie.last
+      if last.quantity > quantity
+        create_calories(quantity: quantity)
+      else
+        last.update_attributes!(quantity: quantity)
+      end
     else
-      Calorie.last.update_attributes!(quantity: quantity)
+      create_calories(quantity)
     end
   end
 
@@ -76,9 +82,11 @@ module Dashboard::Jawbone
       end
     end
 
-    last = Mood.last || create_mood(title, sub_type)
-
-    unless (title == last.title && sub_type == last.sub_type)
+    if last = Mood.last
+      unless (title == last.title && sub_type == last.sub_type)
+        create_mood(title, sub_type)
+      end
+    else
       create_mood(title, sub_type)
     end
   end
