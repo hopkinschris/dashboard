@@ -29,7 +29,7 @@ class DashboardController < ApplicationController
     @minus_4_steps = steps[-5].nil? ? 0 : steps[-5].quantity
     @minus_5_steps = steps[-6].nil? ? 0 : steps[-6].quantity
     @minus_6_steps = steps[-7].nil? ? 0 : steps[-7].quantity
-    @steps_updated = Step.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%A %k:%S")
+    @steps_updated = Step.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a %k:%S")
   end
 
   def calorie_data
@@ -41,7 +41,7 @@ class DashboardController < ApplicationController
     @minus_4_calories  = calories[-5].nil? ? 0 : calories[-5].quantity
     @minus_5_calories  = calories[-6].nil? ? 0 : calories[-6].quantity
     @minus_6_calories  = calories[-7].nil? ? 0 : calories[-7].quantity
-    @calories_updated = Calorie.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%A %k:%S")
+    @calories_updated = Calorie.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a %k:%S")
   end
 
   def mood_data
@@ -92,7 +92,7 @@ class DashboardController < ApplicationController
       @minus_4_weight = @weights.last(5).nil? ? 0 : @weights.last(5).first.quantity
       @minus_5_weight = @weights.last(6).nil? ? 0 : @weights.last(6).first.quantity
       @minus_6_weight = @weights.last(7).nil? ? 0 : @weights.last(7).first.quantity
-      @weight_updated_day = Weight.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%A")
+      @weight_updated_day = Weight.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a")
       @weight_updated_time = Weight.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%k:%S")
     end
   end

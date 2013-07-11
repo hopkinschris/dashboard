@@ -106,7 +106,7 @@
     min-width: 125px;
     font-family: $semi-bold-font;
     font-size: 3em;
-    color: $orange;
+    color: $lime;
     @include fadeIn(1s, 1s, forwards);
     &:after {
       content: "Steps";
@@ -138,7 +138,7 @@
     min-width: 125px;
     font-family: $semi-bold-font;
     font-size: 3em;
-    color: $red;
+    color: $orange;
     @include fadeIn(1s, 1s, forwards);
     &:after {
       content: "Calories Burned";
@@ -208,5 +208,42 @@
     position: absolute;
     bottom: 0px;
     left: 16px;
+  }
+}
+
+.pulse {
+  #heart {
+    font-size: 5.7em;
+    color: $red;
+    @include pulse(1s, linear, infinite);
+    position: absolute;
+    left: 8px;
+    bottom: -70px;
+  }
+  #rate {
+    position: relative;
+    float: right;
+    text-align: right;
+    margin: 16px 17px 0 0;
+    min-width: 30px;
+    font-family: $semi-bold-font;
+    font-size: 3em;
+    color: $red;
+    @include fadeIn(1s, 1s, forwards);
+    &:after {
+      content: "Bpm";
+      position: absolute;
+      bottom: -20%;
+      right: 0px;
+      font-size: 0.28em;
+      text-transform: uppercase;
+    }
+  }
+  #updated {
+    line-height: 1.43em;
+    position: absolute;
+    right: 17px;
+    bottom: 14px;
+    font-family: $semi-bold-font;
   }
 }
