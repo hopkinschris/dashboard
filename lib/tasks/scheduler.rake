@@ -11,3 +11,11 @@ task :refresh_jawbone => :environment do
   puts "* Mood data refreshed."
   puts "done."
 end
+
+desc "Refresh all the Withings data"
+task :refresh_withings => :environment do
+  puts "Refreshing Withings data..."
+  Weight.refresh
+  puts "* Weight data refreshed."
+  puts "done."
+end

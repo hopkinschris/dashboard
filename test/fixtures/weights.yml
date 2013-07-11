@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  quantity: 
+  precision: MyString
+  4,: MyString
+  scale: MyString
+  1: MyString
+
+two:
+  quantity: 
+  precision: MyString
+  4,: MyString
+  scale: MyString
+  1: MyString
