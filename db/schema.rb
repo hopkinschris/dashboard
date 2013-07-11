@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20130710231941) do
   end
 
   create_table "weights", force: true do |t|
-    t.decimal  "quantity",   precision: 4, scale: 1
+    t.float    "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

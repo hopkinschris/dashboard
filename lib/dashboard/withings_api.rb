@@ -17,7 +17,17 @@ module Dashboard::WithingsAPI
   def new_weight
     withings_session
 
-    ap @user.measurement_groups(device: Withings::SCALE).last
+    if lbs_weight = @user.measurement_groups(measurement_type: 1).first.weight
+      kg_weight = (lbs_weight*2.20462).round(2)
+    end
+
+    if last = Weight.last
+      if kg_weight != last.quantity
+        create_weight(kg_weight)
+      end
+    else
+      create_weight(kg_weight)
+    end
   end
 
   private
