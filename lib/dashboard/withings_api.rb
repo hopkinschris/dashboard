@@ -30,9 +30,30 @@ module Dashboard::WithingsAPI
     end
   end
 
+  def new_pulse
+    withings_session
+
+    if raw_data = @user.measurement_groups(measurement_type: 11).first
+      data = raw_data.to_s
+      rate = data[/.*@([^,]*)/,1].strip.to_i
+    end
+
+    if last = Pulse.last
+      if pulse != last.rate
+        create_pulse(rate)
+      end
+    else
+      create_pulse(rate)
+    end
+  end
+
   private
 
   def create_weight(quantity)
     Weight.create(quantity: quantity)
+  end
+
+  def create_pulse(rate)
+    Pulse.create(rate: rate)
   end
 end

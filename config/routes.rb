@@ -9,6 +9,7 @@ Dashboard::Application.routes.draw do
       resources :calories
       resources :moods
       resources :weights
+      resources :pulses
     end
   end
 end

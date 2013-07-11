@@ -17,5 +17,7 @@ task :refresh_withings => :environment do
   puts "Refreshing Withings data..."
   Weight.refresh
   puts "* Weight data refreshed."
+  Pulse.refresh
+  puts "* Pulse data refreshed."
   puts "done."
 end
