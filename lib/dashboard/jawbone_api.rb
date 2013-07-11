@@ -1,6 +1,6 @@
 require 'jawbone-up'
 
-module Dashboard::Jawbone
+module Dashboard::JawboneAPI
 
   def jawbone_up_session
     @up = JawboneUP::Session.new

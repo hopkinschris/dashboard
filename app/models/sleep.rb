@@ -1,5 +1,5 @@
 class Sleep < ActiveRecord::Base
-  extend Dashboard::Jawbone
+  extend Dashboard::JawboneAPI
 
   attr_accessible :light_sleep, :deep_sleep, :quality
 
