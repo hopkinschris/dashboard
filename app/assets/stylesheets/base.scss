@@ -29,6 +29,13 @@ $purple:         #7d4f6d;
   -o-animation:      fadeIn $time_duration $time_delay $direction;
   animation:         fadeIn $time_duration $time_delay $direction;
 }
+@mixin opacity($opacity) {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacity*10)";
+  filter: alpha(opacity=$opacity*10);
+  -moz-opacity: $opacity;
+  -khtml-opacity: $opacity;
+  opacity: $opacity;
+}
 
 .css-animation { opacity: 0; }
 .pull-right    { float: right; }

@@ -160,3 +160,53 @@
     bottom: 0px;
   }
 }
+
+.weight {
+  #quantity {
+    position: relative;
+    float: right;
+    text-align: right;
+    margin: 16px 17px 0 0;
+    min-width: 30px;
+    font-family: $semi-bold-font;
+    font-size: 3em;
+    color: $purple;
+    @include fadeIn(1s, 1s, forwards);
+    &:after {
+      content: "Lbs";
+      position: absolute;
+      bottom: -20%;
+      right: 0px;
+      font-size: 0.28em;
+      text-transform: uppercase;
+    }
+  }
+  #marker {
+    width: 250px;
+    height: 1px;
+    border-top: 2px solid rgba(68,68,68,0.1);
+    position: absolute;
+    bottom: 91px;
+    left: 21px;
+    @include fadeIn(2s, 2s, forwards);
+  }
+  #cross {
+    color: $purple;
+    position: absolute;
+    font-family: $semi-bold-font;
+    left: 6px;
+    bottom: -9px;
+    @include fadeIn(4s, 2s, forwards);
+  }
+  #updated {
+    line-height: 1.43em;
+    float: left;
+    margin: 20px 0 0 21px;
+    font-family: $semi-bold-font;
+  }
+  #weight-canvas {
+    position: absolute;
+    bottom: 0px;
+    left: 16px;
+  }
+}

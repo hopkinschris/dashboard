@@ -4,6 +4,7 @@ class DashboardController < ApplicationController
   before_filter :step_data,    only: :index
   before_filter :calorie_data, only: :index
   before_filter :mood_data,    only: :index
+  before_filter :weight_data,  only: :index
 
   def index
     @user = User.me
@@ -78,6 +79,21 @@ class DashboardController < ApplicationController
         @mood_face  = "Good"
         @mood_scale = 5
       end
+    end
+  end
+
+  def weight_data
+    if Weight.last.present?
+      @weights = Weight.all
+      @today_weight   = @weights.last(1).nil? ? 0 : @weights.last(1).first.quantity
+      @minus_1_weight = @weights.last(2).nil? ? 0 : @weights.last(2).first.quantity
+      @minus_2_weight = @weights.last(3).nil? ? 0 : @weights.last(3).first.quantity
+      @minus_3_weight = @weights.last(4).nil? ? 0 : @weights.last(4).first.quantity
+      @minus_4_weight = @weights.last(5).nil? ? 0 : @weights.last(5).first.quantity
+      @minus_5_weight = @weights.last(6).nil? ? 0 : @weights.last(6).first.quantity
+      @minus_6_weight = @weights.last(7).nil? ? 0 : @weights.last(7).first.quantity
+      @weight_updated_day = Weight.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%A")
+      @weight_updated_time = Weight.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%k:%S")
     end
   end
 end

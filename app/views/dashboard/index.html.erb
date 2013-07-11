@@ -31,7 +31,7 @@
         <p id="title"><%= @mood_title %></p>
         <canvas id="mood-canvas" height="105" width="105"></canvas>
       </li>
-      <li data-row="2" data-col="5" data-sizex="2" data-sizey="2"></li>
+      <li data-row="2" data-col="5" data-sizex="2" data-sizey="1"></li>
       <!-- End of Row 2 -->
 
       <!-- Row 3 -->
@@ -40,7 +40,14 @@
         <div id="quantity" class="css-animation"><%= if @today_calories.nil? then '0' else number_with_delimiter(@today_calories) end %></div>
         <canvas id="calories-canvas" height="225" width="569"></canvas>
       </li>
-      <li data-row="3" data-col="5" data-sizex="2" data-sizey="1"></li>
+      <li class="weight" data-row="3" data-col="5" data-sizex="2" data-sizey="2">
+        <span id="updated"><%= @weight_updated_day %></br><%= @weight_updated_time %> EST</span>
+        <div id="quantity" class="css-animation"><%= @today_weight %></div>
+        <div id="marker" class="css-animation">
+          <i id="cross" data-icon="&#10060;" data-aria="hidden"></i>
+        </div>
+        <canvas id="weight-canvas" height="220" width="267"></canvas>
+      </li>
       <!-- End of Row 3 -->
     </ul>
   </div>
@@ -66,7 +73,7 @@
     ];
     var myDoughnut = new Chart(document.getElementById("sleep-canvas").getContext("2d")).Doughnut(doughnutData, { percentageInnerCutout : 80 });
 
-    var barChartData = {
+    var barChartData1 = {
       labels : [""],
       datasets : [
         {
@@ -76,7 +83,7 @@
         }
       ]
     };
-    var myLine1 = new Chart(document.getElementById("mood-canvas").getContext("2d")).Bar(barChartData, { animationSteps : 250, barShowStroke : true, scaleLineColor : "rgba(0,0,0,0)", scaleGridLineColor : "rgba(0,0,0,0)", scaleShowLabels : false, scaleShowGridLines : false, scaleOverride : true, scaleSteps : 8, scaleStepWidth : 1, scaleStartValue : 0 });
+    var myLine1 = new Chart(document.getElementById("mood-canvas").getContext("2d")).Bar(barChartData1, { animationSteps : 250, barShowStroke : true, scaleLineColor : "rgba(0,0,0,0)", scaleGridLineColor : "rgba(0,0,0,0)", scaleShowLabels : false, scaleShowGridLines : false, scaleOverride : true, scaleSteps : 8, scaleStepWidth : 1, scaleStartValue : 0 });
 
     var lineChartData1 = {
       labels : ["  ","","","","","","  "],
@@ -105,5 +112,17 @@
       ]
     };
     var myLine3 = new Chart(document.getElementById("calories-canvas").getContext("2d")).Line(lineChartData2, { scaleShowLabels : false, scaleShowGridLines : false, scaleLineColor : "rgba(0,0,0,0)", scaleFontFamily : "'proxima_novasemibold'", scaleFontSize : 16, scaleFontColor : "#444" });
+
+    var barChartData2 = {
+      labels : ["","","","","","",""],
+      datasets : [
+        {
+          fillColor : "rgba(125,79,109,0.5)",
+          strokeColor : "rgba(125,79,109,1)",
+          data : [<%= @minus_6_weight %>, <%= @minus_5_weight %>, <%= @minus_4_weight %>, <%= @minus_3_weight %>, <%= @minus_2_weight %>, <%= @minus_1_weight %>, <%= @today_weight %>]
+        }
+      ]
+    }
+    var myLine4 = new Chart(document.getElementById("weight-canvas").getContext("2d")).Bar(barChartData2, { scaleLineColor : "rgba(0,0,0,0)", scaleGridLineColor : "rgba(0,0,0,0)", scaleShowLabels : false, scaleShowGridLines : false, scaleOverride : true, scaleSteps : 15, scaleStepWidth : 1, scaleStartValue : 165 });
   });
 </script>
