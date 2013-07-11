@@ -29,7 +29,7 @@
       position: absolute;
       top: 39px;
       right: 5px;
-      color: $blue;
+      color: #444;
     }
   }
 }
@@ -107,7 +107,7 @@
     min-width: 125px;
     font-family: $semi-bold-font;
     font-size: 3em;
-    color: $lime;
+    color: $dark-gray;
     @include fadeIn(1s, 1s, forwards);
     &:after {
       content: "Steps";
@@ -139,7 +139,7 @@
     min-width: 125px;
     font-family: $semi-bold-font;
     font-size: 3em;
-    color: $orange;
+    color: $dark-gray;
     @include fadeIn(1s, 1s, forwards);
     &:after {
       content: "Calories Burned";
