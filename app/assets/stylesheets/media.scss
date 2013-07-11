@@ -1,3 +1,11 @@
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
   #logo {
     background-image: asset-url("logo@2x.png");
@@ -8,12 +16,9 @@
 }
 @media all and (max-width: 640px) {
   header,
-  section,
+  article,
   footer {
     width: 320px;
-  }
-  article {
-    width: 305px;
   }
   header {
     margin-bottom: 0;
@@ -27,6 +32,25 @@
   }
   h1 {
     font-size: 190%;
+  }
+  section {
+    height: 1445px;
+    @include clearfix;
+    article {
+      height: 1425px;
+      .gridster {
+        ul {
+          .gs_w {
+            position: relative;
+            width: 298px;
+            left: 0px;
+            top: 0px;
+            margin-left: 10px;
+            cursor: default;
+          }
+        }
+      }
+    }
   }
   footer a {
     font-size: 80%;

@@ -62,7 +62,8 @@
 
     $(".gridster ul").gridster({
         widget_margins: [10, 10],
-        widget_base_dimensions: [137, 137]
+        widget_base_dimensions: [137, 137],
+        avoid_overlapped_widgets: true
     });
 
     var doughnutData = [
@@ -118,7 +119,7 @@
     var myLine3 = new Chart(document.getElementById("calories-canvas").getContext("2d")).Line(lineChartData2, { scaleShowLabels : false, scaleShowGridLines : false, scaleLineColor : "rgba(0,0,0,0)", scaleFontFamily : "'proxima_novasemibold'", scaleFontSize : 16, scaleFontColor : "#444" });
 
     var barChartData2 = {
-      labels : ["","","","","","",""],
+      labels : [" ","","","","","",""],
       datasets : [
         {
           fillColor : "rgba(125,79,109,0.5)",
@@ -128,5 +129,17 @@
       ]
     }
     var myLine4 = new Chart(document.getElementById("weight-canvas").getContext("2d")).Bar(barChartData2, { scaleLineColor : "rgba(0,0,0,0)", scaleGridLineColor : "rgba(0,0,0,0)", scaleShowLabels : false, scaleShowGridLines : false, scaleOverride : true, scaleSteps : 15, scaleStepWidth : 1, scaleStartValue : 165 });
+
+    $(window).resize(function() {
+      var width = $(window).width();
+      if (width < 640) {
+        $(".gridster ul").gridster().data('gridster').disable();
+        $(".gridster ul").css('height', '100%');
+      }
+      else {
+        $(".gridster ul").gridster().data('gridster').enable();
+        $(".gridster ul").css('height', '785px');
+      }
+    });
   });
 </script>

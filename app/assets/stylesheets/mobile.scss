@@ -1,0 +1,43 @@
+@media all and (max-width: 640px) {
+  .profile {
+    aside {
+      font-size: 96%;
+      width: 48%;
+    }
+    #height,
+    #measurement {
+      display: none;
+    }
+  }
+  .sleep {
+    margin: 10px 0;
+  }
+  .steps {
+    top: 0px;
+    height: 175px!important;
+    canvas {
+      width: 87%!important;
+      height: auto!important;
+    }
+  }
+  .mood {
+    margin: 10px 0;
+    canvas {
+      left: 96px!important;
+    }
+  }
+  .pulse {
+
+  }
+  .calories {
+    margin: 10px;
+    height: 175px!important;
+    canvas {
+      width: 87%!important;
+      height: auto!important;
+    }
+  }
+  .weight {
+
+  }
+}

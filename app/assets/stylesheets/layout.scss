@@ -1,5 +1,6 @@
 @import "base";
 @import "media";
+@import "mobile";
 
 body {
   background: $bg-color;
@@ -67,6 +68,10 @@ nav {
 }
 section {
   min-height: 628px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 auto;
   background: #F6F6F6;
   border-bottom: 1px solid #d1d3d4;
   box-shadow: inset 0px 11px 8px -10px #CCC,
@@ -82,6 +87,9 @@ section {
       background: $bg-color;
       border: solid 1px #DDD;
       @include border-radius(4px);
+      &:hover {
+        cursor: move;
+      }
     }
   }
 }
