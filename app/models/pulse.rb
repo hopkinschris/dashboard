@@ -3,8 +3,6 @@ class Pulse < ActiveRecord::Base
 
   attr_accessible :rate
 
-  scope :rate,   -> { last.rate }
-
   def self.refresh
     new_pulse
   end
