@@ -11,9 +11,7 @@ module Dashboard::JawboneAPI
     jawbone_up_session
 
     if sleep_summary = @up.get_sleep_summary
-      # single value returned in 0-100 point scale from Jawbone API
       quality = sleep_summary['items'].first['details']['quality']
-      # values are returned in 'seconds' format from Jawbone API
       light = sleep_summary['items'].first['details']['light']
       deep = sleep_summary['items'].first['details']['deep']
     end
@@ -29,65 +27,42 @@ module Dashboard::JawboneAPI
 
   def new_steps
     jawbone_up_session
-
     if score = @up.get("/nudge/api/users/@me/score")
       if data = score['data']['move']
         quantity = data['bg_steps']
+        if Step.last.quantity > quantity.to_i
+          create_steps(quantity)
+        else
+          Step.last.update_attributes!(quantity)
+        end
       end
-    end
-
-    if last = Step.last
-      if last.quantity > quantity
-        create_steps(quantity: quantity)
-      else
-        last.update_attributes!(quantity: quantity)
-      end
-    else
-      create_steps(quantity)
     end
   end
 
   def new_calories
     jawbone_up_session
-
     if score = @up.get("/nudge/api/users/@me/score")
       if data = score['data']['move']
         active_burn  = data['calories']
         resting_burn = data['bmr_calories']
         quantity = active_burn + resting_burn
+        if Calorie.last.quantity > quantity.to_i
+          create_calories(quantity)
+        else
+          Calorie.last.update_attributes!(quantity)
+        end
       end
-    end
-
-    if last = Calorie.last
-      if last.quantity > quantity
-        create_calories(quantity: quantity)
-      else
-        last.update_attributes!(quantity: quantity)
-      end
-    else
-      create_calories(quantity)
     end
   end
 
   def new_mood
     jawbone_up_session
-
     if score = @up.get("/nudge/api/users/@me/score")
       if data = score['data']['mood']
         title = data['title']
         sub_type = data['sub_type']
-      else
-        title = nil
-        sub_type = 0
-      end
-    end
-
-    if last = Mood.last
-      unless (title == last.title && sub_type == last.sub_type)
         create_mood(title, sub_type)
       end
-    else
-      create_mood(title, sub_type)
     end
   end
 
