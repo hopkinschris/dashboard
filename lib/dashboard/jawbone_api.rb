@@ -30,10 +30,10 @@ module Dashboard::JawboneAPI
     if score = @up.get("/nudge/api/users/@me/score")
       if data = score['data']['move']
         quantity = data['bg_steps']
-        if Step.last.quantity > quantity.to_i
+        if Step.last.quantity > quantity
           create_steps(quantity)
         else
-          Step.last.update_attributes!(quantity)
+          Step.last.update_attributes!(quantity: quantity)
         end
       end
     end
@@ -49,7 +49,7 @@ module Dashboard::JawboneAPI
         if Calorie.last.quantity > quantity.to_i
           create_calories(quantity)
         else
-          Calorie.last.update_attributes!(quantity)
+          Calorie.last.update_attributes!(quantity: quantity)
         end
       end
     end
