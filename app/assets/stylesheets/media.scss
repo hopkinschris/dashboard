@@ -15,6 +15,9 @@
   }
 }
 @media all and (max-width: 640px) {
+  html {
+    -webkit-text-size-adjust: none;
+  }
   header,
   article,
   footer {
