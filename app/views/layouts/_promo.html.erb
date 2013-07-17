@@ -1,0 +1,21 @@
+<div id="promo" style="display:none;">
+  <div id="wrapper">
+    <ul>
+      <li>
+        <span>Like this dashboard?</span> Vote for it starting July 17 until July 31 in the <a href="http://chartjs.challengepost.com/submissions/16508-api-chocol-it">Chart.js Dashboard Challenge</a>.
+      </li>
+      <li id="social">
+        <%= render 'layouts/twitter' %>
+        <%= render 'layouts/facebook' %>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    setTimeout(function() {
+      $('#promo').slideDown('slow');
+    }, 5000)
+  })
+</script>
