@@ -1,0 +1,43 @@
+#promo {
+  width: 100%;
+  background: #f6f6f6;
+  #wrapper {
+    max-width: 940px;
+    margin: 0 auto;
+    ul {
+      padding: 20px 10px;
+      list-style: none;
+      text-align: center;
+      li {
+        font-size: 17px;
+        line-height: 1.5em;
+        span {
+          font-family: "proxima_novasemibold", 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        a {
+          text-decoration: none;
+          border-bottom: 1px solid;
+          color: #0881b3;
+        }
+        &#social {
+          width: 165px;
+          height: 25px;
+          margin: 0 auto;
+          margin-top: 10px;
+          &:after {
+            content: "";
+            display: table;
+            clear: both;
+          }
+          .twitter-share-button {
+            width: 85px!important;
+            float: left;
+          }
+          .fb-like {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}
