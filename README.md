@@ -13,3 +13,7 @@ I wrote about this a little while back [Personal API • Quantified Self](http:/
 - [simplificator-withings](https://github.com/simplificator/simplificator-withings) — A Ruby library for accessing WBS API data.
 - [withings-api](https://github.com/webmonarch/withings-api) — Ruby library used to authenticate with the WBS API.
 - [gridster.js](https://github.com/ducksboard/gridster.js) — Intuitive draggable layouts.
+
+## License
+
+You may use the Dashboard project under the terms of the [MIT License](https://github.com/chocolit/dashboard/blob/master/LICENSE).
