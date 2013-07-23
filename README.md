@@ -14,6 +14,13 @@ I wrote about this a little while back [Personal API • Quantified Self](http:/
 - [withings-api](https://github.com/webmonarch/withings-api) — Ruby library used to authenticate with the WBS API.
 - [gridster.js](https://github.com/ducksboard/gridster.js) — Intuitive draggable layouts.
 
+## Authors
+
+Christopher Hopkins
+
+- [http://twitter.com/hopkinschris](http://twitter.com/hopkinschris)
+- [http://github.com/hopkinschris](http://github.com/hopkinschris)
+
 ## License
 
 You may use the Dashboard project under the terms of the [MIT License](https://github.com/chocolit/dashboard/blob/master/LICENSE).
