@@ -14,6 +14,13 @@ I wrote about this a little while back [Personal API • Quantified Self](http:/
 - [withings-api](https://github.com/webmonarch/withings-api) — Ruby library used to authenticate with the WBS API.
 - [gridster.js](https://github.com/ducksboard/gridster.js) — Intuitive draggable layouts.
 
+## Notes
+
+- [Withings API • Quick Start Guide](http://blog.chocol.it/2013/07/25/withings-api/)
+- [Version 1.0.0 • Personal API](http://blog.chocol.it/2013/07/18/version-100/)
+- [Progress • Personal API](http://blog.chocol.it/2013/06/23/progress/)
+- [Personal API • Quantified Self](http://blog.chocol.it/2013/06/08/personal-api/)
+
 ## Authors
 
 Christopher Hopkins
