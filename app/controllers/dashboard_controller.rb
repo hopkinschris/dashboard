@@ -21,7 +21,7 @@ class DashboardController < ApplicationController
   end
 
   def step_data
-    steps = Array.new(Step.all)
+    steps = Array.new(Step.all).sort_by{ |s| s.created_at }
     @today_steps   = steps[-1].nil? ? 0 : steps[-1].quantity
     @minus_1_steps = steps[-2].nil? ? 0 : steps[-2].quantity
     @minus_2_steps = steps[-3].nil? ? 0 : steps[-3].quantity
@@ -33,7 +33,7 @@ class DashboardController < ApplicationController
   end
 
   def calorie_data
-    calories = Array.new(Calorie.all)
+    calories = Array.new(Calorie.all).sort_by{ |c| c.created_at }
     @today_calories    = calories[-1].nil? ? 0 : calories[-1].quantity
     @minus_1_calories  = calories[-2].nil? ? 0 : calories[-2].quantity
     @minus_2_calories  = calories[-3].nil? ? 0 : calories[-3].quantity
@@ -84,7 +84,7 @@ class DashboardController < ApplicationController
 
   def weight_data
     if Weight.last.present?
-      @weights = Weight.all
+      @weights = Weight.all.sort_by{ |w| w.created_at }
       @today_weight   = @weights.last(1).nil? ? 0 : @weights.last(1).first.quantity
       @minus_1_weight = @weights.last(2).nil? ? 0 : @weights.last(2).first.quantity
       @minus_2_weight = @weights.last(3).nil? ? 0 : @weights.last(3).first.quantity
