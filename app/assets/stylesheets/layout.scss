@@ -38,16 +38,17 @@ nav {
     text-indent: -9009em;
   }
   #button {
-    vertical-align: -6px;
+    vertical-align: -5px;
   }
   ul {
+    position: relative;
     display: inline-block;
     margin: 0 20px;
     list-style: none;
     vertical-align: -8px;
     li {
       display: inline-block;
-      padding: 0 10px;
+      padding: 0 8px;
       a {
         margin: 0 0.5em;
         color: #999;
@@ -59,8 +60,29 @@ nav {
         &[data-active="true"] {
           color: #1C1C1C;
         }
+        &.select {
+          cursor: pointer;
+          &:after {
+            content: "▾";
+            margin-left: 5px;
+          }
+        }
         &:hover {
           color: #1c1c1c;
+        }
+      }
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      right: 0px;
+      top: 33px;
+      text-align: right;
+      ul {
+        margin: 0;
+        li {
+          display: block;
+          line-height: 1.6em;
         }
       }
     }
@@ -98,12 +120,13 @@ footer {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 1.5em 0;
+  padding: 1.5em 0 0.7em 0;
   max-width: 945px;
   text-align: center;
   zoom: 1;
   a {
-    margin: 0 2.5em;
+    display: none;
+    margin: 0 1.25em;
     color: #999;
     text-decoration: none;
     text-shadow: 0 1px 0 #FFF;
@@ -119,7 +142,6 @@ footer {
   }
   #flag {
     display: inline-block;
-    float: left;
     background: asset-url('canada.png') no-repeat;
     background-size: 24px 24px;
     width: 24px;
