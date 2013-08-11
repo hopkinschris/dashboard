@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :sleeps, dependent: :destroy
+  has_many :steps,  dependent: :destroy
 
   attr_accessible :name,
                   :location,

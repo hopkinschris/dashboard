@@ -5,5 +5,6 @@ class UserSerializer < ActiveModel::Serializer
              :age,
              :gender,
              :height,
-             :sleeps
+             :sleeps,
+             :steps
 end
