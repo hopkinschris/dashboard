@@ -4,14 +4,14 @@
       <!-- Row 1 -->
       <li class="profile" data-row="1" data-col="1" data-sizex="3" data-sizey="1">
         <img id="avatar" width="85" height="85" src="../assets/avatar.png"></img>
-          <aside>
-            <span id="name"><%= @user.name %></span>
-            <span id="city"><%= @user.location %></span>
-            <span id="age"><%= @user.age %> years old</span>
-            <span id="gender"><%= @user.gender.titleize %></span>
-            <img id="height" width="51" height="90" src="../assets/height@2x.png"></img>
-            <div id="measurement"><%= @user.height %></div>
-          </aside>
+        <aside>
+          <span id="name"><%= @user.name %></span>
+          <span id="city"><%= @user.location %></span>
+          <span id="age"><%= @user.age %> years old</span>
+          <span id="gender"><%= @user.gender.titleize %></span>
+          <img id="height" width="51" height="90" src="../assets/height@2x.png"></img>
+          <div id="measurement"><%= @user.height %></div>
+        </aside>
       </li>
       <li class="sleep" data-row="1" data-col="5" data-sizex="2" data-sizey="2">
         <div id="quality" class="css-animation <%= if (@quality_sleep == 100) then 'three' end %>"><%= @quality_sleep %></div>
@@ -24,7 +24,7 @@
       <!-- Row 2 -->
       <li class="steps" data-row="2" data-col="1" data-sizex="4" data-sizey="2">
         <span id="updated"><%= @steps_updated %> EST</span>
-        <div id="quantity" class="css-animation"><%= if @today_steps.nil? then '0' else number_with_delimiter(@today_steps) end %></div>
+        <div id="quantity" class="css-animation"><%= if @steps[0].nil? then '0' else number_with_delimiter(@steps[0]) end %></div>
         <canvas id="steps-canvas" height="225" width="569"></canvas>
       </li>
       <li class="mood" data-row="1" data-col="6" data-sizex="1" data-sizey="1">
@@ -41,12 +41,12 @@
       <!-- Row 3 -->
       <li class="calories" data-row="3" data-col="1" data-sizex="4" data-sizey="2">
         <span id="updated"><%= @calories_updated %> EST</span>
-        <div id="quantity" class="css-animation"><%= if @today_calories.nil? then '0' else number_with_delimiter(@today_calories) end %></div>
+        <div id="quantity" class="css-animation"><%= if @calories[0].nil? then '0' else number_with_delimiter(@calories[0]) end %></div>
         <canvas id="calories-canvas" height="225" width="569"></canvas>
       </li>
       <li class="weight" data-row="3" data-col="5" data-sizex="2" data-sizey="2">
         <span id="updated"><%= @weight_updated_day %></br><%= @weight_updated_time %> EST</span>
-        <div id="quantity" class="css-animation"><%= @today_weight %></div>
+        <div id="quantity" class="css-animation"><%= @weights[0] %></div>
         <div id="marker" class="css-animation">
           <i id="cross" data-icon="&#10060;" data-aria="hidden"></i>
         </div>
@@ -58,88 +58,88 @@
 </article>
 
 <script>
-  $(function() {
+    $(function() {
 
-    $(".gridster ul").gridster({
-        widget_margins: [10, 10],
-        widget_base_dimensions: [137, 137],
-        avoid_overlapped_widgets: true
+        $(".gridster ul").gridster({
+            widget_margins: [10, 10],
+            widget_base_dimensions: [137, 137],
+            avoid_overlapped_widgets: true
+        });
+
+        var doughnutData = [
+            {
+                value: $('canvas').data('light'),
+                color:"#949FB1"
+            },
+            {
+                value : $('canvas').data('deep'),
+                color : "#46BFBD"
+            }
+        ];
+        var myDoughnut = new Chart(document.getElementById("sleep-canvas").getContext("2d")).Doughnut(doughnutData, { percentageInnerCutout : 80 });
+
+        var barChartData1 = {
+            labels : [""],
+            datasets : [
+                {
+                    fillColor : "<%= if @mood_title == 'No Data' then '#f7464a' else 'rgba(224,228,204,0.5)' end %>",
+                    strokeColor : "rgba(224,228,204,1)",
+                    data : ["<%= @mood_scale %>"]
+                }
+            ]
+        };
+        var myLine1 = new Chart(document.getElementById("mood-canvas").getContext("2d")).Bar(barChartData1, { animationSteps : 250, barShowStroke : true, scaleLineColor : "rgba(0,0,0,0)", scaleGridLineColor : "rgba(0,0,0,0)", scaleShowLabels : false, scaleShowGridLines : false, scaleOverride : true, scaleSteps : 8, scaleStepWidth : 1, scaleStartValue : 0 });
+
+        var lineChartData1 = {
+            labels : ["  ","","","","","","  "],
+            datasets : [
+                {
+                    fillColor : "rgba(151,187,205,0)",
+                    strokeColor : "#4d5360",
+                    pointColor : "#fff",
+                    pointStrokeColor : "#4d5360",
+                    data : [<%= @steps[6] %>, <%= @steps[5] %>, <%= @steps[4] %>, <%= @steps[3] %>, <%= @steps[2] %>, <%= @steps[1] %>, <%= @steps[0] || 0 %>]
+                }
+            ]
+        };
+        var myLine2 = new Chart(document.getElementById("steps-canvas").getContext("2d")).Line(lineChartData1, { scaleShowLabels : false, scaleShowGridLines : false, scaleLineColor : "rgba(0,0,0,0)", scaleFontFamily : "'proxima_novasemibold'", scaleFontSize : 16, scaleFontColor : "#444" });
+
+        var lineChartData2 = {
+            labels : ["  ","","","","","","  "],
+            datasets : [
+                {
+                    fillColor : "rgba(151,187,205,0)",
+                    strokeColor : "#4d5360",
+                    pointColor : "#fff",
+                    pointStrokeColor : "#4d5360",
+                    data : [<%= @calories[6] %>, <%= @calories[5] %>, <%= @calories[4] %>, <%= @calories[3] %>, <%= @calories[2] %>, <%= @calories[1] %>, <%= @calories[0] || 0 %>]
+                }
+            ]
+        };
+        var myLine3 = new Chart(document.getElementById("calories-canvas").getContext("2d")).Line(lineChartData2, { scaleShowLabels : false, scaleShowGridLines : false, scaleLineColor : "rgba(0,0,0,0)", scaleFontFamily : "'proxima_novasemibold'", scaleFontSize : 16, scaleFontColor : "#444" });
+
+        var barChartData2 = {
+            labels : [" ","","","","","",""],
+            datasets : [
+                {
+                    fillColor : "rgba(125,79,109,0.5)",
+                    strokeColor : "rgba(125,79,109,1)",
+                    data : [<%= @weights[6] %>, <%= @weights[5] %>, <%= @weights[4] %>, <%= @weights[3] %>, <%= @weights[2] %>, <%= @weights[1] %>, <%= @weights[0] %>]
+                }
+            ]
+        }
+        var myLine4 = new Chart(document.getElementById("weight-canvas").getContext("2d")).Bar(barChartData2, { scaleLineColor : "rgba(0,0,0,0)", scaleGridLineColor : "rgba(0,0,0,0)", scaleShowLabels : false, scaleShowGridLines : false, scaleOverride : true, scaleSteps : 15, scaleStepWidth : 1, scaleStartValue : 165 });
+
+        $(window).resize(function() {
+            var width = $(window).width();
+            if (width < 640) {
+                $(".gridster ul").gridster().data('gridster').disable();
+                $(".gridster ul").css('height', '100%');
+            }
+            else {
+                $(".gridster ul").gridster().data('gridster').enable();
+                $(".gridster ul").css('height', '785px');
+            }
+        });
     });
-
-    var doughnutData = [
-      {
-        value: $('canvas').data('light'),
-        color:"#949FB1"
-      },
-      {
-        value : $('canvas').data('deep'),
-        color : "#46BFBD"
-      }
-    ];
-    var myDoughnut = new Chart(document.getElementById("sleep-canvas").getContext("2d")).Doughnut(doughnutData, { percentageInnerCutout : 80 });
-
-    var barChartData1 = {
-      labels : [""],
-      datasets : [
-        {
-          fillColor : "<%= if @mood_title == 'No Data' then '#f7464a' else 'rgba(224,228,204,0.5)' end %>",
-          strokeColor : "rgba(224,228,204,1)",
-          data : ["<%= @mood_scale %>"]
-        }
-      ]
-    };
-    var myLine1 = new Chart(document.getElementById("mood-canvas").getContext("2d")).Bar(barChartData1, { animationSteps : 250, barShowStroke : true, scaleLineColor : "rgba(0,0,0,0)", scaleGridLineColor : "rgba(0,0,0,0)", scaleShowLabels : false, scaleShowGridLines : false, scaleOverride : true, scaleSteps : 8, scaleStepWidth : 1, scaleStartValue : 0 });
-
-    var lineChartData1 = {
-      labels : ["  ","","","","","","  "],
-      datasets : [
-        {
-          fillColor : "rgba(151,187,205,0)",
-          strokeColor : "#4d5360",
-          pointColor : "#fff",
-          pointStrokeColor : "#4d5360",
-          data : [<%= @minus_6_steps %>, <%= @minus_5_steps %>, <%= @minus_4_steps %>, <%= @minus_3_steps %>, <%= @minus_2_steps %>, <%= @minus_1_steps %>, <%= @today_steps || 0 %>]
-        }
-      ]
-    };
-    var myLine2 = new Chart(document.getElementById("steps-canvas").getContext("2d")).Line(lineChartData1, { scaleShowLabels : false, scaleShowGridLines : false, scaleLineColor : "rgba(0,0,0,0)", scaleFontFamily : "'proxima_novasemibold'", scaleFontSize : 16, scaleFontColor : "#444" });
-
-    var lineChartData2 = {
-      labels : ["  ","","","","","","  "],
-      datasets : [
-        {
-          fillColor : "rgba(151,187,205,0)",
-          strokeColor : "#4d5360",
-          pointColor : "#fff",
-          pointStrokeColor : "#4d5360",
-          data : [<%= @minus_6_calories %>, <%= @minus_5_calories %>, <%= @minus_4_calories %>, <%= @minus_3_calories %>, <%= @minus_2_calories %>, <%= @minus_1_calories %>, <%= @today_calories || 0 %>]
-        }
-      ]
-    };
-    var myLine3 = new Chart(document.getElementById("calories-canvas").getContext("2d")).Line(lineChartData2, { scaleShowLabels : false, scaleShowGridLines : false, scaleLineColor : "rgba(0,0,0,0)", scaleFontFamily : "'proxima_novasemibold'", scaleFontSize : 16, scaleFontColor : "#444" });
-
-    var barChartData2 = {
-      labels : [" ","","","","","",""],
-      datasets : [
-        {
-          fillColor : "rgba(125,79,109,0.5)",
-          strokeColor : "rgba(125,79,109,1)",
-          data : [<%= @minus_6_weight %>, <%= @minus_5_weight %>, <%= @minus_4_weight %>, <%= @minus_3_weight %>, <%= @minus_2_weight %>, <%= @minus_1_weight %>, <%= @today_weight %>]
-        }
-      ]
-    }
-    var myLine4 = new Chart(document.getElementById("weight-canvas").getContext("2d")).Bar(barChartData2, { scaleLineColor : "rgba(0,0,0,0)", scaleGridLineColor : "rgba(0,0,0,0)", scaleShowLabels : false, scaleShowGridLines : false, scaleOverride : true, scaleSteps : 15, scaleStepWidth : 1, scaleStartValue : 165 });
-
-    $(window).resize(function() {
-      var width = $(window).width();
-      if (width < 640) {
-        $(".gridster ul").gridster().data('gridster').disable();
-        $(".gridster ul").css('height', '100%');
-      }
-      else {
-        $(".gridster ul").gridster().data('gridster').enable();
-        $(".gridster ul").css('height', '785px');
-      }
-    });
-  });
 </script>
