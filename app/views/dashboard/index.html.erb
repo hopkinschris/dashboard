@@ -40,8 +40,8 @@
 
       <!-- Row 3 -->
       <li class="calories" data-row="3" data-col="1" data-sizex="4" data-sizey="2">
-        <span id="updated"><%= @calories_updated %> EST</span>
-        <div id="quantity" class="css-animation"><%= if @today_calories.nil? then '0' else number_with_delimiter(@today_calories) end %></div>
+        <span id="updated"><%= @user.calories.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a %k:%S") %> EST</span>
+        <div id="quantity" class="css-animation"><%= if @user.calories.last.nil? then '0' else number_with_delimiter(@user.calories.last.quantity) end %></div>
         <canvas id="calories-canvas" height="225" width="569"></canvas>
       </li>
       <li class="weight" data-row="3" data-col="5" data-sizex="2" data-sizey="2">
@@ -112,7 +112,7 @@
           strokeColor : "#4d5360",
           pointColor : "#fff",
           pointStrokeColor : "#4d5360",
-          data : [<%= @minus_6_calories %>, <%= @minus_5_calories %>, <%= @minus_4_calories %>, <%= @minus_3_calories %>, <%= @minus_2_calories %>, <%= @minus_1_calories %>, <%= @today_calories || 0 %>]
+          data : [<%= @user.calories[-7].quantity %>, <%= @user.calories[-6].quantity %>, <%= @user.calories[-5].quantity %>, <%= @user.calories[-4].quantity %>, <%= @user.calories[-3].quantity %>, <%= @user.calories[-2].quantity %>, <%= @user.calories[-1].quantity || 0 %>]
         }
       ]
     };

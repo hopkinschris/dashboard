@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
     has_one :sleep
     has_many :weights
     has_many :steps
+    has_many :calories
   end
 
   scope :me, -> { where(name: "Christopher Hopkins").first }

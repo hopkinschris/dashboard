@@ -4,6 +4,7 @@ class UserSerializer < ActiveModel::Serializer
   has_one :sleep
   has_many :weights
   has_many :steps
+  has_many :calories
 
   attributes :id,
              :name,
