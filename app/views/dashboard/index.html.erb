@@ -45,8 +45,8 @@
         <canvas id="calories-canvas" height="225" width="569"></canvas>
       </li>
       <li class="weight" data-row="3" data-col="5" data-sizex="2" data-sizey="2">
-        <span id="updated"><%= @weight_updated_day %></br><%= @weight_updated_time %> EST</span>
-        <div id="quantity" class="css-animation"><%= @today_weight %></div>
+        <span id="updated"><%= @user.weights.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a") %></br><%= @user.weights.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%k:%S") %> EST</span>
+        <div id="quantity" class="css-animation"><%= @user.weights.last.quantity %></div>
         <div id="marker" class="css-animation">
           <i id="cross" data-icon="&#10060;" data-aria="hidden"></i>
         </div>
@@ -124,7 +124,7 @@
         {
           fillColor : "rgba(125,79,109,0.5)",
           strokeColor : "rgba(125,79,109,1)",
-          data : [<%= @minus_6_weight %>, <%= @minus_5_weight %>, <%= @minus_4_weight %>, <%= @minus_3_weight %>, <%= @minus_2_weight %>, <%= @minus_1_weight %>, <%= @today_weight %>]
+          data : [<%= @user.weights[-7].quantity %>, <%= @user.weights[-6].quantity %>, <%= @user.weights[-5].quantity %>, <%= @user.weights[-4].quantity %>, <%= @user.weights[-3].quantity %>, <%= @user.weights[-2].quantity %>, <%= @user.weights[-1].quantity %>]
         }
       ]
     }

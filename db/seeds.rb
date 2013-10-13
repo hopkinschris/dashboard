@@ -13,4 +13,4 @@ calorie_data = [2280, 2785, 2001, 2252, 1697, 1989, 2349]
 calorie_data.each{ |c| Calorie.create(quantity: c) }
 
 weight_data = [170.9, 173.5, 173.2, 169.6, 170.1, 173.3, 170.1]
-weight_data.each{ |w| Weight.create(quantity: w) }
+weight_data.each{ |w| u=User.me;u.weights.build(quantity: w);u.save }
