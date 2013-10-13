@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
                   :location,
                   :age,
                   :gender,
-                  :height
+                  :height,
+                  :admin
 
   with_options dependent: :destroy do |user|
     has_one :mood
@@ -14,5 +15,5 @@ class User < ActiveRecord::Base
     has_many :calories
   end
 
-  scope :me, -> { where(name: "Christopher Hopkins").first }
+  scope :admin, -> { where(admin: true).first }
 end

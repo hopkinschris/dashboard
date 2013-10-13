@@ -11,5 +11,6 @@ class UserSerializer < ActiveModel::Serializer
              :location,
              :age,
              :gender,
-             :height
+             :height,
+             :admin
 end
