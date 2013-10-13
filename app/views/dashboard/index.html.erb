@@ -28,7 +28,7 @@
         <canvas id="steps-canvas" height="225" width="569"></canvas>
       </li>
       <li class="mood" data-row="1" data-col="6" data-sizex="1" data-sizey="1">
-        <p id="title"><%= @mood_title %></p>
+        <p id="title"><%= @user.mood.title %></p>
         <canvas id="mood-canvas" height="105" width="105"></canvas>
       </li>
       <li class="pulse" data-row="2" data-col="5" data-sizex="2" data-sizey="1">
@@ -82,9 +82,9 @@
       labels : [""],
       datasets : [
         {
-          fillColor : "<%= if @mood_title == 'No Data' then '#f7464a' else 'rgba(224,228,204,0.5)' end %>",
+          fillColor : "<%= if @user.mood.title == 'No Data' then '#f7464a' else 'rgba(224,228,204,0.5)' end %>",
           strokeColor : "rgba(224,228,204,1)",
-          data : ["<%= @mood_scale %>"]
+          data : ["<%= @user.mood.sub_type %>"]
         }
       ]
     };

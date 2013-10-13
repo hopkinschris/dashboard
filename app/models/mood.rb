@@ -1,7 +1,10 @@
 class Mood < ActiveRecord::Base
   extend Dashboard::JawboneAPI
 
-  attr_accessible :title, :sub_type
+  belongs_to :user
+
+  attr_accessible :title,
+                  :sub_type
 
   scope :title,       -> { last.title }
   scope :sub_type,    -> { last.sub_type }

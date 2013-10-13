@@ -2,7 +2,6 @@ class DashboardController < ApplicationController
   before_filter :sleep_data,   only: :index
   before_filter :step_data,    only: :index
   before_filter :calorie_data, only: :index
-  before_filter :mood_data,    only: :index
   before_filter :weight_data,  only: :index
   before_filter :pulse_data,   only: :index
 
@@ -42,44 +41,6 @@ class DashboardController < ApplicationController
     @minus_5_calories  = calories[-6].nil? ? 0 : calories[-6].quantity
     @minus_6_calories  = calories[-7].nil? ? 0 : calories[-7].quantity
     @calories_updated = Calorie.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a %k:%S")
-  end
-
-  def mood_data
-    if Mood.last.present?
-      @mood_title = Mood.title
-      @mood_sub_type  = Mood.sub_type
-
-      case @mood_sub_type
-      when 0
-        @mood_face  = "No Data"
-        @mood_title = "No Data"
-        @mood_scale = 8
-      when 1
-        @mood_face  = "Amazing!"
-        @mood_scale = 8
-      when 2
-        @mood_face  = "Pumped UP"
-        @mood_scale = 7
-      when 3
-        @mood_face  = "Energized"
-        @mood_scale = 6
-      when 4
-        @mood_face  = "Meh"
-        @mood_scale = 4
-      when 5
-        @mood_face  = "Dragging"
-        @mood_scale = 3
-      when 6
-        @mood_face  = "Exhausted"
-        @mood_scale = 2
-      when 7
-        @mood_face  = "Totally Done"
-        @mood_scale = 1
-      when 8
-        @mood_face  = "Good"
-        @mood_scale = 5
-      end
-    end
   end
 
   def weight_data

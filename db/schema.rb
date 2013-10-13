@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130711010104) do
+ActiveRecord::Schema.define(version: 20131013171153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,10 @@ ActiveRecord::Schema.define(version: 20130711010104) do
     t.integer  "sub_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "moods", ["user_id"], name: "index_moods_on_user_id", using: :btree
 
   create_table "pulses", force: true do |t|
     t.integer  "rate"
