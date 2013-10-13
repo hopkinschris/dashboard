@@ -23,8 +23,8 @@
 
       <!-- Row 2 -->
       <li class="steps" data-row="2" data-col="1" data-sizex="4" data-sizey="2">
-        <span id="updated"><%= @steps_updated %> EST</span>
-        <div id="quantity" class="css-animation"><%= if @today_steps.nil? then '0' else number_with_delimiter(@today_steps) end %></div>
+        <span id="updated"><%= @user.steps.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a %k:%S") %> EST</span>
+        <div id="quantity" class="css-animation"><%= if @user.steps.last.nil? then '0' else number_with_delimiter(@user.steps.last.quantity) end %></div>
         <canvas id="steps-canvas" height="225" width="569"></canvas>
       </li>
       <li class="mood" data-row="1" data-col="6" data-sizex="1" data-sizey="1">
@@ -98,7 +98,7 @@
           strokeColor : "#4d5360",
           pointColor : "#fff",
           pointStrokeColor : "#4d5360",
-          data : [<%= @minus_6_steps %>, <%= @minus_5_steps %>, <%= @minus_4_steps %>, <%= @minus_3_steps %>, <%= @minus_2_steps %>, <%= @minus_1_steps %>, <%= @today_steps || 0 %>]
+          data : [<%= @user.steps[-7].quantity %>, <%= @user.steps[-6].quantity %>, <%= @user.steps[-5].quantity %>, <%= @user.steps[-4].quantity %>, <%= @user.steps[-3].quantity %>, <%= @user.steps[-2].quantity %>, <%= @user.steps[-1].quantity || 0 %>]
         }
       ]
     };

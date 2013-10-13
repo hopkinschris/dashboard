@@ -3,6 +3,7 @@ class UserSerializer < ActiveModel::Serializer
   has_one :pulse
   has_one :sleep
   has_many :weights
+  has_many :steps
 
   attributes :id,
              :name,
