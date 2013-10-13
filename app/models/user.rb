@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   with_options dependent: :destroy do |user|
     has_one :mood
     has_one :pulse
+    has_one :sleep
   end
 
   scope :me, -> { where(name: "Christopher Hopkins").first }

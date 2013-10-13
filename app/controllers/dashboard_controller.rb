@@ -1,5 +1,4 @@
 class DashboardController < ApplicationController
-  before_filter :sleep_data,   only: :index
   before_filter :step_data,    only: :index
   before_filter :calorie_data, only: :index
   before_filter :weight_data,  only: :index
@@ -9,14 +8,6 @@ class DashboardController < ApplicationController
   end
 
   private
-
-  def sleep_data
-    if Sleep.last.present?
-      @light_sleep   = Sleep.light
-      @deep_sleep    = Sleep.deep
-      @quality_sleep = Sleep.quality
-    end
-  end
 
   def step_data
     steps = Array.new(Step.all).sort_by{ |s| s.created_at }

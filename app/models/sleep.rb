@@ -1,7 +1,11 @@
 class Sleep < ActiveRecord::Base
   extend Dashboard::JawboneAPI
 
-  attr_accessible :light_sleep, :deep_sleep, :quality
+  belongs_to :user
+
+  attr_accessible :light_sleep,
+                  :deep_sleep,
+                  :quality
 
   scope :light,   -> { last.light_sleep }
   scope :deep,    -> { last.deep_sleep }
