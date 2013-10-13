@@ -3,7 +3,6 @@ class DashboardController < ApplicationController
   before_filter :step_data,    only: :index
   before_filter :calorie_data, only: :index
   before_filter :weight_data,  only: :index
-  before_filter :pulse_data,   only: :index
 
   def index
     @user = User.me
@@ -55,16 +54,6 @@ class DashboardController < ApplicationController
       @minus_6_weight = @weights.last(7).nil? ? 0 : @weights.last(7).first.quantity
       @weight_updated_day = Weight.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a")
       @weight_updated_time = Weight.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%k:%S")
-    end
-  end
-
-  def pulse_data
-    if Pulse.last.present?
-      @pulse = Pulse.last.rate
-      @pulse_updated_time = Pulse.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a %k:%S")
-    else
-      @pulse = 0
-      @pulse_updated_time = "—"
     end
   end
 end

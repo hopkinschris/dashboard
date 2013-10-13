@@ -33,8 +33,8 @@
       </li>
       <li class="pulse" data-row="2" data-col="5" data-sizex="2" data-sizey="1">
         <i id="heart" data-icon="&hearts;" data-aria="hidden"></i>
-        <div id="rate" class="css-animation"><%= @pulse %></div>
-        <span id="updated"><%= @pulse_updated_time %> EST</span>
+        <div id="rate" class="css-animation"><%= @user.pulse.rate %></div>
+        <span id="updated"><%= @user.pulse.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a %k:%S") %> EST</span>
       </li>
       <!-- End of Row 2 -->
 
