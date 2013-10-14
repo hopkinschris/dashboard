@@ -66,6 +66,7 @@ GEM
       rubyzip
     heroku-api (0.3.13)
       excon (~> 0.25.0)
+    highline (1.6.19)
     hike (1.2.3)
     httparty (0.11.0)
       multi_json (~> 1.0)
@@ -169,6 +170,7 @@ DEPENDENCIES
   faraday
   foreman
   heroku
+  highline
   jawbone-up (~> 0.0.5)
   jbuilder (~> 1.0.1)
   jquery-rails
