@@ -14,10 +14,10 @@
           </aside>
       </li>
       <li class="sleep" data-row="1" data-col="5" data-sizex="2" data-sizey="2">
-        <div id="quality" class="css-animation <%= if (@user.sleep.quality == 100) then 'three' end %>"><%= @user.sleep.quality %></div>
-        <canvas id="sleep-canvas" height="225" width="225" data-light="<%= @user.sleep.light_sleep %>" data-deep="<%= @user.sleep.deep_sleep %>"></canvas>
-        <p id="deep">Deep Sleep: <span><%= Time.at(@user.sleep.deep_sleep).gmtime.strftime("%l:%M") %></span></p>
-        <p id="light">Light Sleep: <span><%= Time.at(@user.sleep.light_sleep).gmtime.strftime("%l:%M") %></span></p>
+        <div id="quality" class="css-animation <%= if (@user.current_sleep.quality == 100) then 'three' end %>"><%= @user.current_sleep.quality %></div>
+        <canvas id="sleep-canvas" height="225" width="225" data-light="<%= @user.current_sleep.light_sleep %>" data-deep="<%= @user.current_sleep.deep_sleep %>"></canvas>
+        <p id="deep">Deep Sleep: <span><%= Time.at(@user.current_sleep.deep_sleep).gmtime.strftime("%l:%M") %></span></p>
+        <p id="light">Light Sleep: <span><%= Time.at(@user.current_sleep.light_sleep).gmtime.strftime("%l:%M") %></span></p>
       </li>
       <!-- End of Row 1 -->
 
@@ -28,13 +28,13 @@
         <canvas id="steps-canvas" height="225" width="569"></canvas>
       </li>
       <li class="mood" data-row="1" data-col="6" data-sizex="1" data-sizey="1">
-        <p id="title"><%= @user.mood.title %></p>
+        <p id="title"><%= @user.current_mood.title %></p>
         <canvas id="mood-canvas" height="105" width="105"></canvas>
       </li>
       <li class="pulse" data-row="2" data-col="5" data-sizex="2" data-sizey="1">
         <i id="heart" data-icon="&hearts;" data-aria="hidden"></i>
-        <div id="rate" class="css-animation"><%= @user.pulse.rate %></div>
-        <span id="updated"><%= @user.pulse.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a %k:%S") %> EST</span>
+        <div id="rate" class="css-animation"><%= @user.current_pulse.rate %></div>
+        <span id="updated"><%= @user.current_pulse.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a %k:%S") %> EST</span>
       </li>
       <!-- End of Row 2 -->
 
@@ -82,9 +82,9 @@
       labels : [""],
       datasets : [
         {
-          fillColor : "<%= if @user.mood.title == 'No Data' then '#f7464a' else 'rgba(224,228,204,0.5)' end %>",
+          fillColor : "<%= if @user.current_mood.title == 'No Data' then '#f7464a' else 'rgba(224,228,204,0.5)' end %>",
           strokeColor : "rgba(224,228,204,1)",
-          data : ["<%= @user.mood.sub_type %>"]
+          data : ["<%= @user.current_mood.sub_type %>"]
         }
       ]
     };

@@ -16,4 +16,16 @@ class User < ActiveRecord::Base
   end
 
   scope :admin, -> { where(admin: true).first }
+
+  def current_sleep
+    Sleep.where(user: User.admin).order(:created_at).reverse_order.first
+  end
+
+  def current_mood
+    Mood.where(user: User.admin).order(:created_at).reverse_order.first
+  end
+
+  def current_pulse
+    Pulse.where(user: User.admin).order(:created_at).reverse_order.first
+  end
 end

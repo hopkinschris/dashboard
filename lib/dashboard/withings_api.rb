@@ -33,7 +33,7 @@ module Dashboard::WithingsAPI
     if raw_data = @user.measurement_groups(measurement_type: 11).first
       data = raw_data.to_s
       rate = data[/.*@([^,]*)/,1].strip.to_i
-      if last = @admin.pulse
+      if last = @admin.current_pulse
         if rate != last.rate
           create_pulse(rate)
         end

@@ -17,7 +17,7 @@ module Dashboard::JawboneAPI
       deep = sleep_summary['items'].first['details']['deep']
     end
 
-    if last = @admin.sleep
+    if last = @admin.current_sleep
       unless (light == last.light_sleep && deep == last.deep_sleep && quality == last.quality)
         create_sleep(light, deep, quality)
       end
