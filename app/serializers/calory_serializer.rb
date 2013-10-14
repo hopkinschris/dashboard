@@ -1,8 +1,7 @@
-class MoodSerializer < ActiveModel::Serializer
+class CalorySerializer < ActiveModel::Serializer
   attributes :id,
              :date,
-             :title,
-             :sub_type,
+             :quantity,
              :user_id
 
   def date

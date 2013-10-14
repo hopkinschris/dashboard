@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130711010104) do
+ActiveRecord::Schema.define(version: 20131013181828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,20 +27,29 @@ ActiveRecord::Schema.define(version: 20130711010104) do
     t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "calories", ["user_id"], name: "index_calories_on_user_id", using: :btree
 
   create_table "moods", force: true do |t|
     t.string   "title"
     t.integer  "sub_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "moods", ["user_id"], name: "index_moods_on_user_id", using: :btree
 
   create_table "pulses", force: true do |t|
     t.integer  "rate"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "pulses", ["user_id"], name: "index_pulses_on_user_id", using: :btree
 
   create_table "sleeps", force: true do |t|
     t.integer  "light_sleep"
@@ -48,13 +57,19 @@ ActiveRecord::Schema.define(version: 20130711010104) do
     t.integer  "quality"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "sleeps", ["user_id"], name: "index_sleeps_on_user_id", using: :btree
 
   create_table "steps", force: true do |t|
     t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "steps", ["user_id"], name: "index_steps_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -64,12 +79,16 @@ ActiveRecord::Schema.define(version: 20130711010104) do
     t.string   "height"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",      default: false
   end
 
   create_table "weights", force: true do |t|
     t.float    "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "weights", ["user_id"], name: "index_weights_on_user_id", using: :btree
 
 end

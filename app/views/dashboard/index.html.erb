@@ -14,39 +14,39 @@
           </aside>
       </li>
       <li class="sleep" data-row="1" data-col="5" data-sizex="2" data-sizey="2">
-        <div id="quality" class="css-animation <%= if (@quality_sleep == 100) then 'three' end %>"><%= @quality_sleep %></div>
-        <canvas id="sleep-canvas" height="225" width="225" data-light="<%= @light_sleep %>" data-deep="<%= @deep_sleep %>"></canvas>
-        <p id="deep">Deep Sleep: <span><%= Time.at(@deep_sleep).gmtime.strftime("%l:%M") %></span></p>
-        <p id="light">Light Sleep: <span><%= Time.at(@light_sleep).gmtime.strftime("%l:%M") %></span></p>
+        <div id="quality" class="css-animation <%= if (@user.sleep.quality == 100) then 'three' end %>"><%= @user.sleep.quality %></div>
+        <canvas id="sleep-canvas" height="225" width="225" data-light="<%= @user.sleep.light_sleep %>" data-deep="<%= @user.sleep.deep_sleep %>"></canvas>
+        <p id="deep">Deep Sleep: <span><%= Time.at(@user.sleep.deep_sleep).gmtime.strftime("%l:%M") %></span></p>
+        <p id="light">Light Sleep: <span><%= Time.at(@user.sleep.light_sleep).gmtime.strftime("%l:%M") %></span></p>
       </li>
       <!-- End of Row 1 -->
 
       <!-- Row 2 -->
       <li class="steps" data-row="2" data-col="1" data-sizex="4" data-sizey="2">
-        <span id="updated"><%= @steps_updated %> EST</span>
-        <div id="quantity" class="css-animation"><%= if @today_steps.nil? then '0' else number_with_delimiter(@today_steps) end %></div>
+        <span id="updated"><%= @user.steps.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a %k:%S") %> EST</span>
+        <div id="quantity" class="css-animation"><%= if @user.steps.last.nil? then '0' else number_with_delimiter(@user.steps.last.quantity) end %></div>
         <canvas id="steps-canvas" height="225" width="569"></canvas>
       </li>
       <li class="mood" data-row="1" data-col="6" data-sizex="1" data-sizey="1">
-        <p id="title"><%= @mood_title %></p>
+        <p id="title"><%= @user.mood.title %></p>
         <canvas id="mood-canvas" height="105" width="105"></canvas>
       </li>
       <li class="pulse" data-row="2" data-col="5" data-sizex="2" data-sizey="1">
         <i id="heart" data-icon="&hearts;" data-aria="hidden"></i>
-        <div id="rate" class="css-animation"><%= @pulse %></div>
-        <span id="updated"><%= @pulse_updated_time %> EST</span>
+        <div id="rate" class="css-animation"><%= @user.pulse.rate %></div>
+        <span id="updated"><%= @user.pulse.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a %k:%S") %> EST</span>
       </li>
       <!-- End of Row 2 -->
 
       <!-- Row 3 -->
       <li class="calories" data-row="3" data-col="1" data-sizex="4" data-sizey="2">
-        <span id="updated"><%= @calories_updated %> EST</span>
-        <div id="quantity" class="css-animation"><%= if @today_calories.nil? then '0' else number_with_delimiter(@today_calories) end %></div>
+        <span id="updated"><%= @user.calories.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a %k:%S") %> EST</span>
+        <div id="quantity" class="css-animation"><%= if @user.calories.last.nil? then '0' else number_with_delimiter(@user.calories.last.quantity) end %></div>
         <canvas id="calories-canvas" height="225" width="569"></canvas>
       </li>
       <li class="weight" data-row="3" data-col="5" data-sizex="2" data-sizey="2">
-        <span id="updated"><%= @weight_updated_day %></br><%= @weight_updated_time %> EST</span>
-        <div id="quantity" class="css-animation"><%= @today_weight %></div>
+        <span id="updated"><%= @user.weights.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%a") %></br><%= @user.weights.last.updated_at.in_time_zone("Eastern Time (US & Canada)").strftime("%k:%S") %> EST</span>
+        <div id="quantity" class="css-animation"><%= @user.weights.last.quantity %></div>
         <div id="marker" class="css-animation">
           <i id="cross" data-icon="&#10060;" data-aria="hidden"></i>
         </div>
@@ -82,9 +82,9 @@
       labels : [""],
       datasets : [
         {
-          fillColor : "<%= if @mood_title == 'No Data' then '#f7464a' else 'rgba(224,228,204,0.5)' end %>",
+          fillColor : "<%= if @user.mood.title == 'No Data' then '#f7464a' else 'rgba(224,228,204,0.5)' end %>",
           strokeColor : "rgba(224,228,204,1)",
-          data : ["<%= @mood_scale %>"]
+          data : ["<%= @user.mood.sub_type %>"]
         }
       ]
     };
@@ -98,7 +98,7 @@
           strokeColor : "#4d5360",
           pointColor : "#fff",
           pointStrokeColor : "#4d5360",
-          data : [<%= @minus_6_steps %>, <%= @minus_5_steps %>, <%= @minus_4_steps %>, <%= @minus_3_steps %>, <%= @minus_2_steps %>, <%= @minus_1_steps %>, <%= @today_steps || 0 %>]
+          data : [<%= @user.steps[-7].quantity %>, <%= @user.steps[-6].quantity %>, <%= @user.steps[-5].quantity %>, <%= @user.steps[-4].quantity %>, <%= @user.steps[-3].quantity %>, <%= @user.steps[-2].quantity %>, <%= @user.steps[-1].quantity || 0 %>]
         }
       ]
     };
@@ -112,7 +112,7 @@
           strokeColor : "#4d5360",
           pointColor : "#fff",
           pointStrokeColor : "#4d5360",
-          data : [<%= @minus_6_calories %>, <%= @minus_5_calories %>, <%= @minus_4_calories %>, <%= @minus_3_calories %>, <%= @minus_2_calories %>, <%= @minus_1_calories %>, <%= @today_calories || 0 %>]
+          data : [<%= @user.calories[-7].quantity %>, <%= @user.calories[-6].quantity %>, <%= @user.calories[-5].quantity %>, <%= @user.calories[-4].quantity %>, <%= @user.calories[-3].quantity %>, <%= @user.calories[-2].quantity %>, <%= @user.calories[-1].quantity || 0 %>]
         }
       ]
     };
@@ -124,7 +124,7 @@
         {
           fillColor : "rgba(125,79,109,0.5)",
           strokeColor : "rgba(125,79,109,1)",
-          data : [<%= @minus_6_weight %>, <%= @minus_5_weight %>, <%= @minus_4_weight %>, <%= @minus_3_weight %>, <%= @minus_2_weight %>, <%= @minus_1_weight %>, <%= @today_weight %>]
+          data : [<%= @user.weights[-7].quantity %>, <%= @user.weights[-6].quantity %>, <%= @user.weights[-5].quantity %>, <%= @user.weights[-4].quantity %>, <%= @user.weights[-3].quantity %>, <%= @user.weights[-2].quantity %>, <%= @user.weights[-1].quantity %>]
         }
       ]
     }

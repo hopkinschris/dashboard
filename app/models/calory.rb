@@ -1,5 +1,7 @@
-class Calorie < ActiveRecord::Base
+class Calory < ActiveRecord::Base
   extend Dashboard::JawboneAPI
+
+  belongs_to :user
 
   attr_accessible :quantity
 
