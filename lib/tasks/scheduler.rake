@@ -5,7 +5,7 @@ task :refresh_jawbone => :environment do
   puts "* Sleep data refreshed."
   Step.refresh
   puts "* Step data refreshed."
-  Calorie.refresh
+  Calory.refresh
   puts "* Calorie data refreshed."
   Mood.refresh
   puts "* Mood data refreshed."

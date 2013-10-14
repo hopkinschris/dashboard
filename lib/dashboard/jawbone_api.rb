@@ -5,6 +5,7 @@ module Dashboard::JawboneAPI
   def jawbone_up_session
     @up = JawboneUP::Session.new
     @up.signin ENV['JAWBONE_UP_EMAIL'], ENV['JAWBONE_UP_PWD']
+    @admin = User.admin
   end
 
   def new_sleep
@@ -16,7 +17,7 @@ module Dashboard::JawboneAPI
       deep = sleep_summary['items'].first['details']['deep']
     end
 
-    if last = Sleep.last
+    if last = @admin.sleep
       unless (light == last.light_sleep && deep == last.deep_sleep && quality == last.quality)
         create_sleep(light, deep, quality)
       end
@@ -30,10 +31,10 @@ module Dashboard::JawboneAPI
     if score = @up.get("/nudge/api/users/@me/score")
       if data = score['data']['move']
         quantity = data['bg_steps']
-        if Step.last.quantity > quantity
+        if @admin.steps.last.quantity > quantity
           create_steps(quantity)
         else
-          Step.last.update_attributes!(quantity: quantity)
+          @admin.steps.last.update_attributes!(quantity: quantity)
         end
       end
     end
@@ -46,10 +47,10 @@ module Dashboard::JawboneAPI
         active_burn  = data['calories']
         resting_burn = data['bmr_calories']
         quantity = active_burn + resting_burn
-        if Calorie.last.quantity > quantity.to_i
+        if @admin.calories.last.quantity > quantity.to_i
           create_calories(quantity)
         else
-          Calorie.last.update_attributes!(quantity: quantity)
+          @admin.calories.last.update_attributes!(quantity: quantity)
         end
       end
     end
@@ -69,18 +70,22 @@ module Dashboard::JawboneAPI
   private
 
   def create_sleep(light, deep, quality)
-    Sleep.create(light_sleep: light, deep_sleep: deep, quality: quality)
+    @admin.build_sleep(light_sleep: light, deep_sleep: deep, quality: quality)
+    @admin.save
   end
 
   def create_steps(quantity)
-    Step.create(quantity: quantity)
+    @admin.steps.build(quantity: quantity)
+    @admin.save
   end
 
   def create_calories(quantity)
-    Calorie.create(quantity: quantity)
+    @admin.calories.build(quantity: quantity)
+    @admin.save
   end
 
   def create_mood(title, sub_type)
-    Mood.create(title: title, sub_type: sub_type)
+    @admin.build_mood(title: title, sub_type: sub_type)
+    @admin.save
   end
 end

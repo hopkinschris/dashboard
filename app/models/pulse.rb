@@ -6,6 +6,6 @@ class Pulse < ActiveRecord::Base
   attr_accessible :rate
 
   def self.refresh
-    new_pulse
+    new_pulse(User.admin)
   end
 end
