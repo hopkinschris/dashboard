@@ -84,7 +84,7 @@
         {
           fillColor : "<%= if @user.current_mood.title == 'No Data' then '#f7464a' else 'rgba(224,228,204,0.5)' end %>",
           strokeColor : "rgba(224,228,204,1)",
-          data : ["<%= @user.current_mood.sub_type %>"]
+          data : ["<%= mood_adjustment(@user.current_mood) %>"]
         }
       ]
     };
