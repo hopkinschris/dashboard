@@ -45,7 +45,7 @@ $lime:           #84db4b;
 }
 
 .css-animation { opacity: 0; }
-.pull-right    { float: right; }
+.pull-right    { position:absolute; top: 30px; right: 0; }
 
 h1 {
   color: #222;

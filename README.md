@@ -4,7 +4,7 @@ A personal statistics dashboard and API.
 
 ## Inspiration
 
-I wrote about this a little while back [Personal API • Quantified Self](http://blog.chocol.it/2013/06/08/personal-api/).
+I wrote about this a little while back [Personal API • Quantified Self](http://blog.hopkins.io/2013/06/08/personal-api/).
 
 ## Credit
 
@@ -16,10 +16,10 @@ I wrote about this a little while back [Personal API • Quantified Self](http:/
 
 ## Notes
 
-- [Withings API • Quick Start Guide](http://blog.chocol.it/2013/07/25/withings-api/)
-- [Version 1.0.0 • Personal API](http://blog.chocol.it/2013/07/18/version-100/)
-- [Progress • Personal API](http://blog.chocol.it/2013/06/23/progress/)
-- [Personal API • Quantified Self](http://blog.chocol.it/2013/06/08/personal-api/)
+- [Withings API • Quick Start Guide](http://blog.hopkins.io/2013/07/25/withings-api/)
+- [Version 1.0.0 • Personal API](http://blog.hopkins.io/2013/07/18/version-100/)
+- [Progress • Personal API](http://blog.hopkins.io/2013/06/23/progress/)
+- [Personal API • Quantified Self](http://blog.hopkins.io/2013/06/08/personal-api/)
 
 ## Authors
 
