@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>hopkins.io • api + dashboard</title>
+  <title>hopkins.io — dashboard</title>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/114x114.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/72x72.png">
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../assets/57x57.png">
-  <%= favicon_link_tag "/favicon.png" %>
+  <%= favicon_link_tag "/favicon-16.ico" %>
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/apple-touch-icon-57x57.png">
+
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <%= render 'layouts/ga' %>
 </head>
 <body>
-  <%= render 'layouts/header' %>
   <section>
     <%= yield %>
   </section>
-  <%= render 'layouts/footer' %>
 </body>
 </html>

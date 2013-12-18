@@ -2,10 +2,9 @@
 
 .profile {
   #avatar {
-    @include border-radius(4px);
+    @include border-radius(85px);
     padding: 4px;
     margin: 21px;
-    border: solid 1px #DDD;
   }
   aside {
     position: absolute;
@@ -17,6 +16,10 @@
       line-height: 1.43em;
       &#name {
         font-family: $semi-bold-font;
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
       }
     }
     #height {

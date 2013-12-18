@@ -14,91 +14,13 @@ body {
   -o-font-smoothing:      antialiased;
   font-smoothing:         antialiased;
 }
-header {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0 auto;
-  margin-bottom: 2.2em;
-  padding: 0 10px;
-  max-width: 945px;
-}
-nav {
-  position: relative;
-  margin: 0 auto;
-  padding: 30px 0;
-  text-align: center;
-  #logo {
-    display: inline-block;
-    float: left;
-    width: 125px;
-    height: 30px;
-    border: none;
-    background: asset-url("logo.png") no-repeat;
-    background-size: 125px 30px;
-    text-indent: -9009em;
-  }
-  #button {
-    vertical-align: -5px;
-  }
-  ul {
-    position: relative;
-    display: inline-block;
-    margin: 0 20px;
-    list-style: none;
-    vertical-align: -8px;
-    li {
-      display: inline-block;
-      padding: 0 8px;
-      a {
-        margin: 0 0.5em;
-        color: #999;
-        text-decoration: none;
-        text-shadow: 0 1px 0 #FFF;
-        -webkit-transition: color 1s;
-        -moz-transition: color 1s;
-        transition: color 1s;
-        &[data-active="true"] {
-          color: #1C1C1C;
-        }
-        &.select {
-          cursor: pointer;
-          &:after {
-            content: "▾";
-            margin-left: 5px;
-          }
-        }
-        &:hover {
-          color: #1c1c1c;
-        }
-      }
-    }
-    .dropdown {
-      display: none;
-      position: absolute;
-      right: 0px;
-      top: 33px;
-      text-align: right;
-      ul {
-        margin: 0;
-        li {
-          display: block;
-          line-height: 1.6em;
-        }
-      }
-    }
-  }
-}
 section {
   min-height: 628px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0 auto;
-  background: #F6F6F6;
-  border-bottom: 1px solid #d1d3d4;
-  box-shadow: inset 0px 11px 8px -10px #CCC,
-              inset 0px -11px 8px -10px #CCC;
+  background: $bg-color;
   article {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -108,47 +30,10 @@ section {
     margin-bottom: 20px;
     .gridster li {
       background: $bg-color;
-      border: solid 1px #DDD;
       @include border-radius(4px);
       &:hover {
         cursor: move;
       }
     }
-  }
-}
-footer {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0 auto;
-  padding: 1.5em 0 0.7em 0;
-  max-width: 945px;
-  text-align: center;
-  zoom: 1;
-  a {
-    display: none;
-    margin: 0 1.25em;
-    color: #999;
-    text-decoration: none;
-    text-shadow: 0 1px 0 #FFF;
-    -webkit-transition: color 1s;
-    -moz-transition: color 1s;
-    transition: color 1s;
-    &[data-active="true"] {
-      color: #1C1C1C;
-    }
-    &:hover {
-      color: #1c1c1c;
-    }
-  }
-  #flag {
-    display: inline-block;
-    background: asset-url('canada.png') no-repeat;
-    background-size: 24px 24px;
-    width: 24px;
-    height: 24px;
-    margin: 0 10px;
-    position: relative;
-    top: -5px;
   }
 }

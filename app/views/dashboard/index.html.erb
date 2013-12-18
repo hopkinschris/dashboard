@@ -5,7 +5,7 @@
       <li class="profile" data-row="1" data-col="1" data-sizex="3" data-sizey="1">
         <img id="avatar" width="85" height="85" src="../assets/avatar.png"></img>
           <aside>
-            <span id="name"><%= @user.name %></span>
+            <span id="name"><a href="http://hopkins.io"><%= @user.name %></a></span>
             <span id="city"><%= @user.location %></span>
             <span id="age"><%= @user.age %> years old</span>
             <span id="gender"><%= @user.gender.titleize %></span>
@@ -56,6 +56,8 @@
     </ul>
   </div>
 </article>
+
+<a id="ribbon" href="https://github.com/hopkinschris/dashboard"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 
 <script>
   $(function() {
