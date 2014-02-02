@@ -16,8 +16,8 @@
       <li class="sleep" data-row="1" data-col="5" data-sizex="2" data-sizey="2">
         <div id="quality" class="css-animation <%= if (@user.current_sleep.quality == 100) then 'three' end %>"><%= @user.current_sleep.quality %></div>
         <canvas id="sleep-canvas" height="225" width="225" data-light="<%= @user.current_sleep.light_sleep %>" data-deep="<%= @user.current_sleep.deep_sleep %>"></canvas>
-        <p id="deep">Deep Sleep: <span><%= Time.at(@user.current_sleep.deep_sleep).gmtime.strftime("%l:%M") %></span></p>
-        <p id="light">Light Sleep: <span><%= Time.at(@user.current_sleep.light_sleep).gmtime.strftime("%l:%M") %></span></p>
+        <p id="deep">Deep Sleep: <span><%= @user.current_sleep.deep_sleep.nil? ? 'nil' : Time.at(@user.current_sleep.deep_sleep).gmtime.strftime("%l:%M") %></span></p>
+        <p id="light">Light Sleep: <span><%= @user.current_sleep.light_sleep.nil? ? 'nil' : Time.at(@user.current_sleep.light_sleep).gmtime.strftime("%l:%M") %></span></p>
       </li>
       <!-- End of Row 1 -->
 
